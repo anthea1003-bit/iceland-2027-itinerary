@@ -16,6 +16,7 @@
     --chip-ice:rgba(124,200,236,.14); --chip-aurora:rgba(95,216,166,.14);
     --chip-warn:rgba(233,185,110,.16); --chip-bad:rgba(233,139,126,.16);
     --r1:#3193CC; --r2:#C07C28; --r3:#9A5FD0; --r4:#2AA873;
+    --sea1:#0A1424; --sea2:#0F1E36; --land:#1B2A44; --land2:#243655; --ice2:#B9DDF2; --vig:.42;
   }
   @media (prefers-color-scheme: light){
     :root{
@@ -25,6 +26,7 @@
       --chip-ice:rgba(23,111,158,.10); --chip-aurora:rgba(23,126,86,.10);
       --chip-warn:rgba(143,98,23,.12); --chip-bad:rgba(172,67,53,.10);
       --r1:#176F9E; --r2:#8F6217; --r3:#7A4FB0; --r4:#177E56;
+      --sea1:#DCE9F5; --sea2:#C6DBEE; --land:#F3F6FA; --land2:#E4EBF3; --ice2:#8FC0E3; --vig:.10;
     }
   }
   :root[data-theme="dark"]{
@@ -34,6 +36,7 @@
     --chip-ice:rgba(124,200,236,.14); --chip-aurora:rgba(95,216,166,.14);
     --chip-warn:rgba(233,185,110,.16); --chip-bad:rgba(233,139,126,.16);
     --r1:#3193CC; --r2:#C07C28; --r3:#9A5FD0; --r4:#2AA873;
+    --sea1:#0A1424; --sea2:#0F1E36; --land:#1B2A44; --land2:#243655; --ice2:#B9DDF2; --vig:.42;
   }
   :root[data-theme="light"]{
     --bg:#F4F7FB; --surface:#FFFFFF; --surface2:#EAF0F7; --line:#D5E0EC;
@@ -42,6 +45,7 @@
     --chip-ice:rgba(23,111,158,.10); --chip-aurora:rgba(23,126,86,.10);
     --chip-warn:rgba(143,98,23,.12); --chip-bad:rgba(172,67,53,.10);
     --r1:#176F9E; --r2:#8F6217; --r3:#7A4FB0; --r4:#177E56;
+      --sea1:#DCE9F5; --sea2:#C6DBEE; --land:#F3F6FA; --land2:#E4EBF3; --ice2:#8FC0E3; --vig:.10;
   }
   body{
     background:var(--bg); color:var(--ink);
@@ -64,6 +68,7 @@
   .chip{background:var(--surface); border:1px solid var(--line); border-radius:999px;
     padding:4px 13px; font-size:13px; color:var(--muted); white-space:nowrap;}
   .chip b{color:var(--ink); font-weight:600;}
+  @media(max-width:560px){ .chip{white-space:normal; line-height:1.5;} }
 
   .card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px 20px;}
   .grid{display:grid; gap:12px;}
@@ -143,6 +148,90 @@
   .todo-section .todo-body{flex:1;}
   .todo-section .todo-body .todo-title{font-weight:600; font-size:15px;}
   .todo-section .todo-body .todo-desc{font-size:13.5px; color:var(--muted); margin-top:2px;}
+
+  /* route map */
+  .map-card{padding-top:14px;}
+  .map-toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:0 8px 10px;}
+  .map-btn{font:inherit; font-size:13px; font-weight:600; color:var(--ink); background:var(--surface2);
+    border:1px solid var(--line); border-radius:999px; padding:5px 14px; cursor:pointer; white-space:nowrap;}
+  .map-btn:hover{border-color:var(--ice); color:var(--ice);}
+  .map-btn[disabled]{opacity:.6; cursor:default;}
+  .day-chips{display:flex; flex-wrap:wrap; gap:4px;}
+  .day-chip{font:inherit; font-size:11.5px; font-weight:600; font-variant-numeric:tabular-nums; color:var(--faint);
+    background:transparent; border:1px solid var(--line); border-radius:999px; padding:2px 8px 2px 6px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:5px; transition:color .2s,border-color .2s,background .2s;}
+  .day-chip i{width:7px; height:7px; border-radius:50%; background:var(--dot); opacity:.45; transition:opacity .2s, transform .2s;}
+  .day-chip.done{color:var(--muted);} .day-chip.done i{opacity:1;}
+  .day-chip.active{color:var(--ink); border-color:var(--dot); background:var(--surface2);}
+  .day-chip.active i{opacity:1; transform:scale(1.35);}
+  .day-chip:hover{color:var(--ink);}
+  .hl-row{display:flex; flex-wrap:wrap; gap:8px; padding:0 8px 12px;}
+  @media(max-width:560px){ .hl-row{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin;} }
+  .hl-card{flex:1 1 auto; display:flex; align-items:center; gap:9px; font:inherit; text-align:left; cursor:pointer;
+    background:var(--surface2); border:1px solid var(--line); border-radius:10px; padding:7px 12px 7px 8px; color:var(--muted);
+    transition:border-color .2s, transform .2s, box-shadow .2s;}
+  .hl-card:hover{border-color:var(--warn); transform:translateY(-1px);}
+  .hl-card.active{border-color:var(--warn); box-shadow:0 0 0 3px var(--chip-warn);}
+  .hl-card .n{width:22px; height:22px; border-radius:50%; background:var(--warn); color:var(--bg); font-size:11.5px; font-weight:800;
+    display:grid; place-items:center; flex-shrink:0;}
+  .hl-card .t{font-size:12.5px; font-weight:600; color:var(--ink); line-height:1.3; white-space:nowrap;}
+  .hl-card .s{font-size:11px; line-height:1.3; white-space:nowrap;}
+  .map-wrap{position:relative;}
+  .map-hud{display:grid; grid-template-columns:auto 1fr auto; gap:6px 18px; align-items:start; padding:10px 14px 4px;
+    margin:4px 8px 0; border-top:1px solid var(--line); transition:opacity .25s;}
+  .map-hud.swap{opacity:.35;}
+  .hud-day{font-size:9.5px; letter-spacing:.2em; color:var(--ice); font-weight:700;}
+  .hud-date{font-family:"Songti TC","Noto Serif TC",Georgia,serif; font-size:19px; font-weight:700; line-height:1.2; color:var(--ink); margin-top:1px; font-variant-numeric:tabular-nums;}
+  .hud-title{font-size:13px; font-weight:600; color:var(--ink); line-height:1.4; margin-top:2px;}
+  .hud-meta{font-size:12px; color:var(--muted); margin-top:1px;}
+  .hud-meta b{color:var(--aurora); font-weight:600;}
+  .hud-hl{margin-top:7px; padding-top:7px; border-top:1px dashed var(--line); font-size:12px; color:var(--warn); font-weight:600; line-height:1.4;}
+  .hud-hl small{display:block; color:var(--muted); font-weight:500; font-size:11px;}
+  .map-tip{position:absolute; left:0; top:0; pointer-events:none; opacity:0; transform:translateY(4px);
+    transition:opacity .15s, transform .15s; background:var(--surface); border:1px solid var(--line); border-radius:9px;
+    padding:8px 11px; font-size:12.5px; line-height:1.5; color:var(--muted); max-width:230px; z-index:3;
+    box-shadow:0 8px 24px rgba(0,0,0,.28);}
+  .map-tip.show{opacity:1; transform:translateY(0);}
+  .map-tip b{color:var(--ink); display:block; font-size:13px;}
+  .map-tip .tip-drive{color:var(--aurora); font-weight:600;}
+  #routeMap svg{display:block;}
+  #routeMap .leg{transition:opacity .35s;}
+  #routeMap .leg.dim{opacity:.12;}
+  #routeMap .flow{opacity:0; transition:opacity .6s;}
+  #routeMap svg.done .flow{opacity:.75; animation:flowDash 1.1s linear infinite;}
+  #routeMap .badge{opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.4); transition:opacity .3s, transform .45s cubic-bezier(.2,1.4,.4,1);}
+  #routeMap .badge.on{opacity:1; transform:scale(1);}
+  #routeMap .ring{transform-box:fill-box; transform-origin:center; opacity:0;}
+  #routeMap .ring.live{animation:ringPulse 1.8s ease-out infinite;}
+  #routeMap .hl{opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.3); transition:opacity .25s, transform .5s cubic-bezier(.2,1.5,.4,1);}
+  #routeMap .hl.on{opacity:1; transform:scale(1);}
+  #routeMap .hl.focus .hlring{animation:ringPulse 1.4s ease-out infinite;}
+  #routeMap .hl .hlring{transform-box:fill-box; transform-origin:center; opacity:0;}
+  #routeMap .hl.burst .hlring{animation:ringBurst .9s ease-out 1;}
+  #routeMap .marker{opacity:0; transition:opacity .25s;}
+  #routeMap .marker.on{opacity:1;}
+  #routeMap .marker .spark{transform-box:fill-box; transform-origin:center; animation:spark 1s ease-in-out infinite;}
+  #routeMap .hit{fill:none; stroke:transparent; stroke-width:16; cursor:pointer; pointer-events:stroke;}
+  @keyframes ringPulse{0%{transform:scale(.4); opacity:.9;} 100%{transform:scale(2.6); opacity:0;}}
+  @keyframes ringBurst{0%{transform:scale(.5); opacity:1;} 100%{transform:scale(3.2); opacity:0;}}
+  @keyframes flowDash{to{stroke-dashoffset:-17;}}
+  @keyframes spark{0%,100%{transform:scale(1); opacity:.35;} 50%{transform:scale(1.5); opacity:.1;}}
+  @media (prefers-reduced-motion: reduce){
+    #routeMap .badge,#routeMap .hl,#routeMap .leg{transition:none;}
+    #routeMap .ring.live,#routeMap .hl.focus .hlring,#routeMap svg.done .flow,#routeMap .marker .spark{animation:none;}
+    #routeMap .ring.live{opacity:.5; transform:scale(1.6);}
+    #routeMap svg.done .flow{opacity:0;}
+  }
+  @media(max-width:560px){
+    .map-hud{grid-template-columns:auto 1fr; padding:10px 10px 4px; margin:4px 0 0;}
+    .hud-flags{grid-column:1 / -1; min-width:0; max-width:none;}
+  }
+  .day-chip.car{border-bottom:2px solid var(--aurora);}
+  .day-chip.cancel{position:relative;}
+  .day-chip.cancel::after{content:""; position:absolute; top:-3px; right:-3px; width:7px; height:7px; border-radius:50%; background:var(--bad); border:1.5px solid var(--surface);}
+  .hud-flags{display:flex; flex-direction:column; gap:3px; min-width:200px; max-width:300px; padding-top:2px;}
+  .hud-flag{font-size:11.5px; line-height:1.35; color:var(--muted);}
+  .hud-flag.car{color:var(--aurora);} .hud-flag.cancel{color:var(--bad);} .hud-flag.hl{color:var(--warn); font-weight:600;}
 </style>
 
 <div class="wrap">
@@ -362,14 +451,32 @@
   <section>
     <div class="sec-head">
       <h2>路線地圖</h2>
-      <p class="sub">冰島西南部示意圖（依實際經緯度繪製）。實線＝去程、虛線＝回程；線上的數字是日期，▪＝過夜點。</p>
+      <p class="sub">按「播放全程」看 13 天路線依序畫出來，地圖下方的資訊列會跟著報當天的路線與重點；點任一天、任一亮點，只看那一天；滑到路線上有摘要。實線＝去程、虛線＝回程，▪＝過夜點。</p>
     </div>
-    <div class="chart-card">
-      <div class="chart-scroll"><div id="routeMap" style="min-width:700px;"></div></div>
-      <div class="chips" style="padding:6px 8px 12px; margin-top:0;">
+    <div class="chart-card map-card">
+      <div class="map-toolbar">
+        <button class="map-btn" id="mapPlay" type="button">▶ 播放全程</button>
+        <div class="day-chips" id="dayChips"></div>
+      </div>
+      <div class="hl-row" id="hlRow"></div>
+      <div class="map-wrap" id="mapWrap">
+        <div class="chart-scroll"><div id="routeMap" style="min-width:720px;"></div></div>
+        <div class="map-tip" id="mapTip" role="status"></div>
+      </div>
+      <div class="map-hud" id="mapHud" aria-live="polite">
+          <div><div class="hud-day" id="hudDay">DAY —</div><div class="hud-date" id="hudDate">按播放開始</div></div>
+          <div><div class="hud-title" id="hudTitle">13 天・南岸自駕</div><div class="hud-meta" id="hudMeta">總車程約 18.5 小時，最長一天 2.9 小時</div></div>
+          <div class="hud-flags" id="hudFlags"></div>
+        </div>
+
+      <div class="chips" style="padding:8px 8px 12px; margin-top:0;">
         <div class="chip"><b style="color:var(--r1);">━</b> 南岸去程 1/21–24</div>
         <div class="chip"><b style="color:var(--r2);">╍</b> 分段回程 1/25–27</div>
         <div class="chip"><b style="color:var(--r3);">━</b> 雷克雅內斯 1/29</div>
+        <div class="chip"><b style="color:var(--faint);">━</b> 機場接駁 1/19・31</div>
+        <div class="chip"><b style="color:var(--warn);">●</b> 重點標記</div>
+        <div class="chip"><b style="color:var(--aurora);">▁</b> 日期底線＝租車日</div>
+        <div class="chip"><b style="color:var(--bad);">•</b> 紅點＝當晚有重複訂房要退</div>
         <div class="chip">▪ 過夜點</div>
       </div>
     </div>
@@ -620,11 +727,12 @@
 })();
 
 (function(){
-  var LON=[-24.35,-15.65], LAT=[63.22,65.18], W=960, H=500, P=8;
+  var LON=[-22.98,-15.7], LAT=[63.27,64.78], W=960, H=440, P=8;
   var kx=(W-2*P)/(LON[1]-LON[0]), ky=(H-2*P)/(LAT[1]-LAT[0]);
   function px(lon){return +(P+(lon-LON[0])*kx).toFixed(1);}
   function py(lat){return +(P+(LAT[1]-lat)*ky).toFixed(1);}
-  function pl(pts,close){return pts.map(function(c,i){return (i?'L':'M')+px(c[0])+','+py(c[1]);}).join(' ')+(close?' Z':'');}
+  function pl(pts,close,off){off=off||0;return pts.map(function(c,i){return (i?'L':'M')+px(c[0])+','+(py(c[1])+off).toFixed(1);}).join(' ')+(close?' Z':'');}
+  var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var coast=[[-15.65,64.18],[-16.0,64.10],[-16.18,64.04],[-16.6,63.90],[-17.2,63.78],[-17.9,63.62],
     [-18.6,63.47],[-19.05,63.39],[-19.7,63.51],[-20.3,63.62],[-20.8,63.78],[-21.15,63.86],[-21.4,63.84],
@@ -633,74 +741,245 @@
     [-22.1,64.5],[-22.4,64.55],[-22.7,64.6],[-23.0,64.72],[-23.05,64.79],[-23.38,64.81],[-23.62,64.76],
     [-23.8,64.73],[-23.9,64.75],[-24.05,64.88],[-23.88,64.91],[-23.71,64.89],[-23.42,64.94],[-23.27,64.92],
     [-23.0,65.0],[-22.73,65.07],[-22.73,65.18],[-15.65,65.18]];
-
-  var glaciers=[[-16.9,64.42,1.15,0.38],[-19.07,63.67,0.26,0.10],[-19.63,63.65,0.16,0.06],
+  var glaciers=[[-16.9,64.45,1.15,0.31],[-19.07,63.67,0.26,0.10],[-19.63,63.65,0.16,0.06],
     [-20.5,64.68,0.35,0.28],[-23.76,64.83,0.09,0.05]];
 
-  var kef=[-22.605,63.985], rvk=[-21.94,64.145];
-  var rKEF=[kef,[-22.4,63.97],[-22.0,64.05],rvk];
-  var rOut=[rvk,[-21.7,64.18],[-21.13,64.26],[-20.73,64.21],[-20.30,64.31],[-20.12,64.33],
-    [-20.3,64.2],[-20.53,64.13],[-20.88,64.04],[-21.0,63.935],[-20.4,63.83],[-20.22,63.75],
-    [-19.99,63.615],[-19.51,63.53],[-19.08,63.40],[-19.01,63.42],[-18.6,63.55],[-18.17,63.77],
-    [-18.06,63.79],[-17.6,63.86],[-17.2,63.93],[-16.97,64.02],[-16.55,63.94],[-16.18,64.05]];
-  var rBack=[[-16.55,63.94],[-17.2,63.93],[-17.6,63.86],[-18.06,63.79],[-18.6,63.55],[-19.01,63.42],
-    [-19.51,63.53],[-19.99,63.615],[-20.22,63.75],[-20.4,63.83],[-21.0,63.935],[-21.19,63.99],
-    [-21.4,64.02],[-21.94,64.145]];
-  var rRnes=[rvk,[-21.97,64.06],[-22.2,63.95],[-22.44,63.88],[-22.43,63.84],[-22.25,63.90],[-22.0,64.0],[-21.96,64.12]];
-
-  var pois=[
-    ["KEF 機場",kef,-6,14,"end","c"],
-    ["雷克雅維克",rvk,-8,4,"end","c"],
-    ["辛格韋德利",[-21.13,64.26],0,-9,"middle","n"],
-    ["蓋錫爾",[-20.30,64.31],-4,-9,"end","n"],
-    ["古佛斯",[-20.12,64.33],7,0,"start","n"],
-    ["Selfoss",[-21.0,63.935],-8,10,"end","o"],
-    ["塞里雅蘭瀑布",[-19.99,63.615],2,-9,"start","n"],
-    ["斯科加瀑布",[-19.51,63.53],0,-10,"middle","n"],
-    ["維克・黑沙灘",[-19.01,63.42],4,14,"middle","o"],
-    ["羽毛峽谷",[-18.17,63.77],-7,-6,"end","n"],
-    ["斯卡夫塔",[-16.97,64.02],-6,-8,"end","n"],
-    ["冰河湖旅館",[-16.55,63.94],2,14,"middle","o"],
-    ["傑古沙龍冰河湖",[-16.18,64.05],-6,-9,"end","n"],
-    ["藍湖",[-22.44,63.88],-8,4,"end","n"]
+  var kef=[-22.605,63.985], rvk=[-21.94,64.145], selfoss=[-21.0,63.935], vik=[-19.01,63.42],
+      foss=[-16.55,63.94], lagoon=[-16.18,64.05];
+  var wd={'1/19':'週二','1/20':'週三','1/21':'週四','1/22':'週五','1/23':'週六','1/24':'週日','1/25':'週一','1/26':'週二','1/27':'週三','1/28':'週四','1/29':'週五','1/30':'週六','1/31':'週日'};
+  var legs=[
+    {d:'1/19',t:'KEF 機場 → 雷克雅維克（機場巴士）',drive:'0.8h',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)',w:2,pts:[kef,[-22.4,63.97],[-22.0,64.05],rvk]},
+    {d:'1/20',t:'雷克雅維克市區步行日',drive:'不開車',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)'},
+    {d:'1/21',t:'黃金圈：辛格韋德利 → 蓋錫爾 → 古佛斯 → Selfoss',drive:'2.9h',stay:'Hotel Selfoss',c:'var(--r1)',car:1,hl:0,
+      pts:[rvk,[-21.7,64.18],[-21.13,64.26],[-20.73,64.21],[-20.30,64.31],[-20.12,64.33],[-20.3,64.2],[-20.53,64.13],[-20.88,64.04],selfoss]},
+    {d:'1/22',t:'瀑布線：塞里雅蘭 → 斯科加 → 黑沙灘 → 維克',drive:'2.3h',stay:'Black Beach Suites',c:'var(--r1)',car:2,cancel:'Seljalandsfoss cottage（與 Black Beach 同晚重複）',
+      pts:[selfoss,[-20.4,63.83],[-20.22,63.75],[-19.99,63.615],[-19.51,63.53],[-19.08,63.40],vik]},
+    {d:'1/23',t:'維克 → 羽毛峽谷 → 斯卡夫塔 → 冰河湖旅館',drive:'2.2h',stay:'Fosshotel Glacier Lagoon',c:'var(--r1)',car:3,hl:2,cancel:'Black Beach 1/23 那筆（與 Fosshotel 同晚重複）',
+      pts:[vik,[-18.6,63.55],[-18.17,63.77],[-18.06,63.79],[-17.6,63.86],[-17.2,63.93],[-16.97,64.02],foss]},
+    {d:'1/24',t:'傑古沙龍冰河湖 · 鑽石沙灘 · 藍冰洞',drive:'1.2h',stay:'Fosshotel（第二晚）',c:'var(--r1)',car:4,hl:1,pts:[foss,lagoon]},
+    {d:'1/25',t:'冰河湖區 → 維克（補看漏掉的點）',drive:'2.3h',stay:'Black Beach Suites（已訂）',c:'var(--r2)',dash:true,off:7,car:5,cancel:'EIR＋Sif 1/25–31 那組（與 1/27–31 重複）',
+      pts:[foss,[-17.2,63.93],[-17.6,63.86],[-18.06,63.79],[-18.6,63.55],vik]},
+    {d:'1/26',t:'維克 → 迪霍拉里 → LAVA Centre → Selfoss',drive:'1.9h',stay:'BSG 度假屋（已訂）',c:'var(--r2)',dash:true,off:7,car:6,cancel:'EIR＋Sif 1/25–31 那組（與 1/27–31 重複）',
+      pts:[vik,[-19.51,63.53],[-19.99,63.615],[-20.22,63.75],[-20.4,63.83],selfoss]},
+    {d:'1/27',t:'Selfoss → Kerið → 雷克雅維克 → Sky Lagoon',drive:'1.1h',stay:'雷克雅維克 EIR＋Sif（1/27–31）',c:'var(--r2)',dash:true,off:7,car:7,hl:3,
+      pts:[selfoss,[-21.19,63.99],[-21.4,64.02],rvk]},
+    {d:'1/28',t:'市區文化日（暴風雪備用日 ①）',drive:'不開車',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)',car:8},
+    {d:'1/29',t:'雷克雅內斯：藍湖 → 板塊之橋 → Gunnuhver',drive:'2.0h',stay:'雷克雅維克 EIR＋Sif',c:'var(--r3)',w:2.2,car:9,
+      pts:[rvk,[-21.97,64.06],[-22.2,63.95],[-22.44,63.88],[-22.43,63.84],[-22.25,63.90],[-22.0,64.0],[-21.96,64.12]]},
+    {d:'1/30',t:'彈性日：Bláfjöll 滑雪或撿漏（備用日 ②）',drive:'1.0h',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)',car:10},
+    {d:'1/31',t:'雷克雅維克 → KEF 還車 → 15:25 起飛',drive:'0.8h',stay:'— 飛香港',c:'var(--faint)',w:2,off:-5,car:11,hl:4,pts:[rvk,[-22.0,64.05],[-22.4,63.97],kef]}
   ];
-
-  var badges=[["19・31",[-22.28,64.03]],["21",[-20.72,64.24]],["22",[-20.22,63.78]],["23",[-17.62,63.89]],
-    ["24",[-16.35,64.01]],["25–27",[-19.45,63.36]],["29",[-22.24,63.92]]];
+  // action highlights: [title, sub, map lon/lat, leg index]
+  var hls=[
+    {t:'租車 1/21 → 1/31',s:'市區取車、KEF 還車（10 天）',pt:[-21.86,64.21],leg:2},
+    {t:'藍冰洞 Tour 1/24',s:'Local Guide 09:45 場，09:00 從旅館出發',pt:[-16.08,64.08],leg:5},
+    {t:'退重複訂房 1/22・1/23',s:'Seljalandsfoss cottage、Black Beach 1/23',pt:[-18.65,63.385],leg:4},
+    {t:'退 EIR＋Sif 1/25–31 那組',s:'留 1/27–31；1/27 順便訂 Sky Lagoon',pt:[-21.82,64.05],leg:8},
+    {t:'1/31 還車 12:00 前',s:'11:00 離開市區，加滿油再還',pt:[-22.62,64.08],leg:12}
+  ];
+  var pois=[
+    ["KEF 機場",kef,-6,14,"end","c"],["雷克雅維克",rvk,-8,4,"end","c"],
+    ["辛格韋德利",[-21.13,64.26],0,-9,"middle","n"],["蓋錫爾",[-20.30,64.31],-4,-9,"end","n"],
+    ["古佛斯",[-20.12,64.33],7,0,"start","n"],["Selfoss",selfoss,-8,10,"end","o"],
+    ["塞里雅蘭瀑布",[-19.99,63.615],2,-11,"start","n"],["斯科加瀑布",[-19.51,63.53],0,15,"middle","n"],
+    ["維克・黑沙灘",vik,0,23,"middle","o"],["羽毛峽谷",[-18.17,63.77],-7,-6,"end","n"],
+    ["斯卡夫塔",[-16.97,64.02],-6,-8,"end","n"],["冰河湖旅館",foss,2,14,"middle","o"],
+    ["傑古沙龍冰河湖",lagoon,-6,-9,"end","n"],["藍湖",[-22.44,63.88],-8,4,"end","n"]
+  ];
+  var badges=[['19–20',[-22.28,64.03],0],['21',[-20.72,64.24],2],['22',[-20.22,63.78],3],['23–24',[-17.62,63.89],4],
+    ['25',[-19.45,63.36],6],['26',[-20.62,63.79],7],['27–30',[-21.58,64.11],8],['29',[-22.24,63.92],10]];
+  var stayPt={'1/19':rvk,'1/20':rvk,'1/21':selfoss,'1/22':vik,'1/23':foss,'1/24':foss,'1/25':vik,'1/26':selfoss,'1/27':rvk,'1/28':rvk,'1/29':rvk,'1/30':rvk,'1/31':kef};
 
   var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="每日行程路線地圖">';
-  s+='<path d="'+pl(coast,true)+'" fill="var(--surface2)" stroke="var(--faint)" stroke-width="1" stroke-linejoin="round" opacity="0.9"/>';
-  glaciers.forEach(function(g){
-    s+='<ellipse cx="'+px(g[0])+'" cy="'+py(g[1])+'" rx="'+(g[2]*kx).toFixed(1)+'" ry="'+(g[3]*ky).toFixed(1)+'" fill="var(--ink)" opacity="0.08"/>';
+  s+='<defs>'+
+    '<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--sea1)"/><stop offset="1" style="stop-color:var(--sea2)"/></linearGradient>'+
+    '<linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--land2)"/><stop offset="1" style="stop-color:var(--land)"/></linearGradient>'+
+    '<radialGradient id="vig" cx="50%" cy="50%" r="70%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" style="stop-opacity:var(--vig)"/></radialGradient>'+
+    '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>'+
+    '<filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.6"/></filter>'+
+    '<filter id="coastglow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="7"/></filter>'+
+    '<pattern id="icepat" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" style="fill:var(--ice2)" opacity=".5"/><circle cx="4.5" cy="4.5" r=".7" style="fill:var(--ice2)" opacity=".35"/></pattern>';
+  legs.forEach(function(l,i){ if(!l.pts) return;
+    s+='<mask id="legm'+i+'"><path id="legmp'+i+'" d="'+pl(l.pts,false,l.off)+'" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></mask>';
   });
-  s+='<text x="'+px(-16.9)+'" y="'+py(64.44)+'" font-size="11" fill="var(--faint)" text-anchor="middle" opacity="0.9">瓦特納冰川</text>';
-  s+='<text x="'+px(-19.07)+'" y="'+py(63.66)+'" font-size="9.5" fill="var(--faint)" text-anchor="middle" opacity="0.8">米達爾斯冰川</text>';
-
-  function route(pts,color,dash,wd){
-    return '<path d="'+pl(pts)+'" fill="none" stroke="'+color+'" stroke-width="'+(wd||2.5)+'"'+
-      (dash?' stroke-dasharray="7 5"':'')+' stroke-linecap="round" stroke-linejoin="round"/>';
-  }
-  s+=route(rKEF,'var(--faint)',false,2);
-  s+='<g transform="translate(0,7)">'+route(rBack,'var(--r2)',true)+'</g>';
-  s+=route(rOut,'var(--r1)',false);
-  s+=route(rRnes,'var(--r3)',false,2.2);
-
+  s+='</defs>';
+  s+='<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="url(#sea)"/>';
+  for(var lon=-23; lon<=-16; lon++){ s+='<line x1="'+px(lon)+'" y1="0" x2="'+px(lon)+'" y2="'+H+'" style="stroke:var(--ink)" stroke-width=".5" opacity=".06"/>'; }
+  for(var lat=63.5; lat<=65; lat+=.5){ s+='<line x1="0" y1="'+py(lat)+'" x2="'+W+'" y2="'+py(lat)+'" style="stroke:var(--ink)" stroke-width=".5" opacity=".06"/>'; }
+  s+='<path d="'+pl(coast,true)+'" fill="none" style="stroke:var(--ice)" stroke-width="10" opacity=".22" filter="url(#coastglow)"/>';
+  s+='<path d="'+pl(coast,true)+'" fill="url(#land)" style="stroke:var(--ice)" stroke-width="1" stroke-opacity=".55" stroke-linejoin="round"/>';
+  glaciers.forEach(function(g){
+    var cx=px(g[0]), cy=py(g[1]), rx=(g[2]*kx).toFixed(1), ry=(g[3]*ky).toFixed(1);
+    s+='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" style="fill:var(--ice2)" opacity=".28" filter="url(#soft)"/>';
+    s+='<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="url(#icepat)"/>';
+  });
+  s+='<text x="'+px(-16.9)+'" y="'+py(64.44)+'" font-size="11" style="fill:var(--muted)" text-anchor="middle" letter-spacing=".15em" opacity=".9">瓦特納冰川</text>';
+  s+='<text x="'+px(-19.07)+'" y="'+py(63.66)+'" font-size="9.5" style="fill:var(--muted)" text-anchor="middle" opacity=".8">米達爾斯冰川</text>';
+  s+='<rect x="0" y="0" width="'+W+'" height="'+H+'" fill="url(#vig)" pointer-events="none"/>';
+  var cxp=W-36, cyp=34;
+  s+='<g opacity=".8"><circle cx="'+cxp+'" cy="'+cyp+'" r="15" fill="none" style="stroke:var(--faint)" stroke-width="1"/>'+
+     '<path d="M'+cxp+','+(cyp-13)+' L'+(cxp+4)+','+(cyp+4)+' L'+cxp+','+cyp+' L'+(cxp-4)+','+(cyp+4)+' Z" style="fill:var(--ink)"/>'+
+     '<text x="'+cxp+'" y="'+(cyp-18)+'" font-size="9" style="fill:var(--muted)" text-anchor="middle" font-weight="600">N</text></g>';
+  var km50=(50/(111.32*Math.cos(64*Math.PI/180)))*kx, sx=26, sy=H-26;
+  s+='<g opacity=".85"><line x1="'+sx+'" y1="'+sy+'" x2="'+(sx+km50).toFixed(1)+'" y2="'+sy+'" style="stroke:var(--ink)" stroke-width="1.5"/>'+
+     '<line x1="'+sx+'" y1="'+(sy-4)+'" x2="'+sx+'" y2="'+(sy+4)+'" style="stroke:var(--ink)" stroke-width="1.5"/>'+
+     '<line x1="'+(sx+km50).toFixed(1)+'" y1="'+(sy-4)+'" x2="'+(sx+km50).toFixed(1)+'" y2="'+(sy+4)+'" style="stroke:var(--ink)" stroke-width="1.5"/>'+
+     '<text x="'+(sx+km50/2).toFixed(1)+'" y="'+(sy-7)+'" font-size="9.5" style="fill:var(--muted)" text-anchor="middle">50 km</text></g>';
+  legs.forEach(function(l,i){ if(!l.pts) return;
+    var d=pl(l.pts,false,l.off), w=l.w||2.6, dash=l.dash?' stroke-dasharray="8 6"':'';
+    s+='<path class="hit" data-leg="'+i+'" d="'+d+'"/>';
+    s+='<g class="leg" data-leg="'+i+'" mask="url(#legm'+i+')">'+
+       '<path d="'+d+'" fill="none" stroke="'+l.c+'" stroke-width="'+(w+5)+'" stroke-linecap="round" stroke-linejoin="round" opacity=".22" filter="url(#glow)"/>'+
+       '<path id="legp'+i+'" d="'+d+'" fill="none" stroke="'+l.c+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round"'+dash+'/>'+
+       '<path class="flow" d="'+d+'" fill="none" style="stroke:var(--surface)" stroke-width="'+Math.max(1,w-1.2)+'" stroke-linecap="round" stroke-dasharray="1.5 15.5"/>'+
+       '</g>';
+  });
   pois.forEach(function(p){
     var x=px(p[1][0]), y=py(p[1][1]);
-    if(p[5]==="o"){ s+='<rect x="'+(x-4)+'" y="'+(y-4)+'" width="8" height="8" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"><title>'+p[0]+'（過夜）</title></rect>'; }
-    else if(p[5]==="c"){ s+='<circle cx="'+x+'" cy="'+y+'" r="5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"><title>'+p[0]+'</title></circle>'; }
-    else { s+='<circle cx="'+x+'" cy="'+y+'" r="3.5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.8"><title>'+p[0]+'</title></circle>'; }
+    if(p[5]==="o"){ s+='<circle class="ring" data-stay="'+p[1].join(',')+'" cx="'+x+'" cy="'+y+'" r="6" fill="none" style="stroke:var(--aurora)" stroke-width="1.5"/>';
+      s+='<rect x="'+(x-4)+'" y="'+(y-4)+'" width="8" height="8" style="fill:var(--ink);stroke:var(--surface)" stroke-width="1.5"><title>'+p[0]+'（過夜）</title></rect>'; }
+    else if(p[5]==="c"){ s+='<circle class="ring" data-stay="'+p[1].join(',')+'" cx="'+x+'" cy="'+y+'" r="7" fill="none" style="stroke:var(--aurora)" stroke-width="1.5"/>';
+      s+='<circle cx="'+x+'" cy="'+y+'" r="5" style="fill:var(--ink);stroke:var(--surface)" stroke-width="1.5"><title>'+p[0]+'</title></circle>'; }
+    else { s+='<circle cx="'+x+'" cy="'+y+'" r="3.5" style="fill:var(--surface);stroke:var(--ink)" stroke-width="1.8"><title>'+p[0]+'</title></circle>'; }
     var fw=(p[5]==="c")?' font-weight="600"':'';
-    s+='<text x="'+(x+p[2])+'" y="'+(y+p[3]+3)+'" font-size="11"'+fw+' fill="'+(p[5]==="n"?'var(--muted)':'var(--ink)')+'" text-anchor="'+p[4]+'">'+p[0]+'</text>';
+    s+='<text x="'+(x+p[2])+'" y="'+(y+p[3]+3)+'" font-size="11"'+fw+' style="fill:'+(p[5]==="n"?'var(--muted)':'var(--ink)')+';stroke:var(--surface)" paint-order="stroke" stroke-width="3" stroke-linejoin="round" text-anchor="'+p[4]+'">'+p[0]+'</text>';
   });
-
   badges.forEach(function(b){
-    var x=px(b[1][0]), y=py(b[1][1]), w=b[0].length>2?38:22;
-    s+='<rect x="'+(x-w/2)+'" y="'+(y-9)+'" width="'+w+'" height="17" rx="8.5" fill="var(--surface)" stroke="var(--line)"/>';
-    s+='<text x="'+x+'" y="'+(y+3.5)+'" font-size="10.5" font-weight="600" fill="var(--muted)" text-anchor="middle">'+b[0]+'</text>';
+    var x=px(b[1][0]), y=py(b[1][1]), w=b[0].length>2?40:24;
+    s+='<g class="badge" data-after="'+b[2]+'"><rect x="'+(x-w/2)+'" y="'+(y-9)+'" width="'+w+'" height="18" rx="9" style="fill:var(--surface);stroke:var(--line)"/>'+
+       '<text x="'+x+'" y="'+(y+3.5)+'" font-size="10.5" font-weight="700" style="fill:var(--ink)" text-anchor="middle">'+b[0]+'</text></g>';
   });
+  hls.forEach(function(h,i){
+    var x=px(h.pt[0]), y=py(h.pt[1]);
+    s+='<g class="hl" data-hl="'+i+'" data-leg="'+h.leg+'"><circle class="hlring" cx="'+x+'" cy="'+y+'" r="8" fill="none" style="stroke:var(--warn)" stroke-width="1.5"/>'+
+       '<circle cx="'+x+'" cy="'+y+'" r="8" style="fill:var(--warn);stroke:var(--surface)" stroke-width="1.5"><title>'+h.t+'</title></circle>'+
+       '<text x="'+x+'" y="'+(y+3.3)+'" font-size="9.5" font-weight="800" style="fill:var(--bg)" text-anchor="middle" pointer-events="none">'+(i+1)+'</text></g>';
+  });
+  s+='<g class="marker" id="mapMarker"><circle class="spark" r="11" style="fill:var(--ice)" opacity=".3" filter="url(#glow)"/>'+
+     '<g id="mapCar"><rect x="-7" y="-4.5" width="14" height="9" rx="2.5" style="fill:var(--ice);stroke:var(--surface)" stroke-width="1.2"/>'+
+     '<rect x="-3.5" y="-2.5" width="5" height="5" rx="1" style="fill:var(--surface)" opacity=".85"/><circle cx="5.5" cy="0" r="1.4" style="fill:var(--surface)"/></g></g>';
   s+='</svg>';
-  document.getElementById('routeMap').innerHTML=s;
+  var host=document.getElementById('routeMap'); host.innerHTML=s;
+  var svg=host.querySelector('svg');
+
+  legs.forEach(function(l,i){ if(!l.pts) return;
+    l.main=svg.querySelector('#legp'+i); l.mask=svg.querySelector('#legmp'+i); l.g=svg.querySelector('.leg[data-leg="'+i+'"]');
+    l.len=l.main.getTotalLength();
+    l.mask.setAttribute('stroke-dasharray', l.len); l.mask.setAttribute('stroke-dashoffset', l.len);
+  });
+  var marker=svg.querySelector('#mapMarker'), car=svg.querySelector('#mapCar'),
+      badgeEls=svg.querySelectorAll('.badge'), rings=svg.querySelectorAll('.ring'), hlEls=svg.querySelectorAll('.hl');
+  function setRing(pt){ rings.forEach(function(r){ r.classList.toggle('live', !!pt && r.getAttribute('data-stay')===pt.join(',')); }); }
+  function showBadges(upto){ badgeEls.forEach(function(b){ b.classList.toggle('on', +b.getAttribute('data-after')<=upto); }); }
+  function showHls(upto, burstLeg){
+    hlEls.forEach(function(h){ var lg=+h.getAttribute('data-leg'); h.classList.toggle('on', lg<=upto);
+      h.classList.remove('burst'); if(lg===burstLeg){ void h.getBoundingClientRect(); h.classList.add('burst'); } });
+  }
+  function focusHl(i){ hlEls.forEach(function(h,j){ h.classList.toggle('focus', j===i); }); hlCards.forEach(function(c,j){ c.classList.toggle('active', j===i); }); }
+
+  // HUD
+  var hud=document.getElementById('mapHud'), hudDay=document.getElementById('hudDay'), hudDate=document.getElementById('hudDate'),
+      hudTitle=document.getElementById('hudTitle'), hudMeta=document.getElementById('hudMeta'), hudFlags=document.getElementById('hudFlags');
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function setHud(i){
+    var l=legs[i]; hud.classList.add('swap');
+    setTimeout(function(){
+      hudDay.textContent='DAY '+String(i+1).padStart(2,'0')+' / 13';
+      hudDate.textContent=l.d+'　'+wd[l.d];
+      hudTitle.textContent=l.t;
+      hudMeta.innerHTML='車程 <b>'+esc(l.drive)+'</b>　宿 '+esc(l.stay);
+      var f='';
+      if(l.car) f+='<div class="hud-flag car">🚗 租車第 '+l.car+' 天'+(l.car===1?'（市區取車）':l.car===11?'（KEF 還車）':'')+'</div>';
+      if(l.cancel) f+='<div class="hud-flag cancel">⚠ 要退：'+esc(l.cancel)+'</div>';
+      if(l.hl!=null) f+='<div class="hud-flag hl">● '+esc(hls[l.hl].t)+'<br><span style="font-weight:500;color:var(--muted)">'+esc(hls[l.hl].s)+'</span></div>';
+      hudFlags.innerHTML=f; hud.classList.remove('swap');
+    }, reduced?0:180);
+  }
+
+  // chips + highlight cards
+  var chipsHost=document.getElementById('dayChips'), chips=[];
+  legs.forEach(function(l,i){
+    var b=document.createElement('button'); b.type='button'; b.className='day-chip'+(l.car?' car':'')+(l.cancel?' cancel':''); b.style.setProperty('--dot', l.c);
+    b.innerHTML='<i></i>'+l.d; b.title=l.t+(l.cancel?'｜要退：'+l.cancel:''); b.addEventListener('click', function(){ playOnly(i); });
+    chipsHost.appendChild(b); chips.push(b);
+  });
+  var hlHost=document.getElementById('hlRow'), hlCards=[];
+  hls.forEach(function(h,i){
+    var b=document.createElement('button'); b.type='button'; b.className='hl-card';
+    b.innerHTML='<span class="n">'+(i+1)+'</span><span><span class="t">'+esc(h.t)+'</span><br><span class="s">'+esc(h.s)+'</span></span>';
+    b.addEventListener('click', function(){ playOnly(h.leg); focusHl(i); });
+    hlHost.appendChild(b); hlCards.push(b);
+  });
+  var playBtn=document.getElementById('mapPlay');
+
+  // animation engine
+  var raf=0, timer=0;
+  function stop(){ cancelAnimationFrame(raf); clearTimeout(timer); playBtn.disabled=false; }
+  function resetAll(instant){
+    svg.classList.remove('done');
+    legs.forEach(function(l){ if(l.mask) l.mask.setAttribute('stroke-dashoffset', instant?0:l.len); if(l.g) l.g.classList.remove('dim'); });
+    chips.forEach(function(c){ c.classList.remove('done','active'); });
+    showBadges(instant?99:-1); showHls(instant?99:-1); marker.classList.remove('on'); setRing(null); focusHl(-1);
+  }
+  function finishLeg(i){ var l=legs[i]; showBadges(i); showHls(i, i); setRing(stayPt[l.d]); chips[i].classList.add('done'); }
+  function playLeg(i,done){
+    var l=legs[i]; chips.forEach(function(c,j){ c.classList.toggle('active', j===i); }); setHud(i);
+    if(!l.pts || reduced){ if(l.mask) l.mask.setAttribute('stroke-dashoffset',0); finishLeg(i); timer=setTimeout(done, reduced?120:560); return; }
+    var L=l.len, dur=Math.max(560, Math.min(1800, L*2.5)), t0=performance.now();
+    marker.classList.add('on');
+    function f(now){
+      var k=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-k,2.4), at=L*e;
+      l.mask.setAttribute('stroke-dashoffset', L-at);
+      var p=l.main.getPointAtLength(at), q=l.main.getPointAtLength(Math.min(L, at+3)), ang=Math.atan2(q.y-p.y, q.x-p.x)*180/Math.PI;
+      marker.setAttribute('transform','translate('+p.x.toFixed(1)+','+p.y.toFixed(1)+')'); car.setAttribute('transform','rotate('+ang.toFixed(1)+')');
+      if(k<1){ raf=requestAnimationFrame(f); } else { finishLeg(i); timer=setTimeout(done,170); }
+    }
+    raf=requestAnimationFrame(f);
+  }
+  function playAll(){
+    stop(); resetAll(false); playBtn.disabled=true;
+    var i=0; (function next(){
+      if(i>=legs.length){ stop(); chips.forEach(function(c){c.classList.remove('active');}); marker.classList.remove('on'); svg.classList.add('done');
+        hudDay.textContent='DAY 13 / 13 · 完成'; return; }
+      playLeg(i++, next); })();
+  }
+  function playOnly(i){
+    stop(); resetAll(true); svg.classList.add('done');
+    legs.forEach(function(l,j){ if(l.g) l.g.classList.toggle('dim', j!==i); });
+    chips.forEach(function(c,j){ c.classList.toggle('done', j<i); });
+    showBadges(i); showHls(i,-1); if(legs[i].mask) legs[i].mask.setAttribute('stroke-dashoffset', legs[i].len);
+    if(legs[i].hl!=null) focusHl(legs[i].hl);
+    playLeg(i, function(){ stop(); marker.classList.remove('on'); });
+  }
+  playBtn.addEventListener('click', playAll);
+
+  // tooltip
+  var wrap=document.getElementById('mapWrap'), tip=document.getElementById('mapTip');
+  function showTip(i, ev){
+    var l=legs[i];
+    tip.innerHTML='<b>'+esc(l.d)+'　'+esc(l.t)+'</b><span class="tip-drive">車程 '+esc(l.drive)+'</span>　宿 '+esc(l.stay)+(l.cancel?'<br><span style="color:var(--bad)">⚠ 要退：'+esc(l.cancel)+'</span>':'');
+    var r=wrap.getBoundingClientRect(), x=ev.clientX-r.left+14, y=ev.clientY-r.top+14;
+    x=Math.min(x, r.width-tip.offsetWidth-8); y=Math.min(y, r.height-tip.offsetHeight-8);
+    tip.style.left=Math.max(4,x)+'px'; tip.style.top=Math.max(4,y)+'px'; tip.classList.add('show');
+  }
+  svg.querySelectorAll('.hit').forEach(function(h){
+    var i=+h.getAttribute('data-leg');
+    h.addEventListener('mouseenter', function(e){ showTip(i,e); });
+    h.addEventListener('mousemove', function(e){ showTip(i,e); });
+    h.addEventListener('mouseleave', function(){ tip.classList.remove('show'); });
+    h.addEventListener('click', function(){ playOnly(i); });
+  });
+  hlEls.forEach(function(h){ h.style.cursor='pointer'; h.addEventListener('click', function(){ var i=+h.getAttribute('data-hl'); playOnly(hls[i].leg); focusHl(i); }); });
+
+  if(reduced){ resetAll(true); svg.classList.add('done'); setHud(0); }
+  else {
+    resetAll(false);
+    var played=false;
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting && !played){ played=true; io.disconnect(); setTimeout(playAll, 300); } }); },{threshold:.3});
+      io.observe(host);
+    } else { played=true; playAll(); }
+  }
 })();
 </script>
 </body>
