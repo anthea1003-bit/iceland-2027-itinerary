@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>冰島南部 12 晚行程檢視（2027/1/19–31）</title>
+</head>
+<body>
+
+<style>
+  :root{
+    --bg:#0B111C; --surface:#121B2A; --surface2:#182438; --line:#233350;
+    --ink:#EAF1F9; --muted:#9DB0C6; --faint:#6B7F97;
+    --ice:#7CC8EC; --aurora:#5FD8A6; --warn:#E9B96E; --bad:#E98B7E;
+    --chip-ice:rgba(124,200,236,.14); --chip-aurora:rgba(95,216,166,.14);
+    --chip-warn:rgba(233,185,110,.16); --chip-bad:rgba(233,139,126,.16);
+    --r1:#3193CC; --r2:#C07C28; --r3:#9A5FD0; --r4:#2AA873;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#F4F7FB; --surface:#FFFFFF; --surface2:#EAF0F7; --line:#D5E0EC;
+      --ink:#152232; --muted:#4E6379; --faint:#7E92A8;
+      --ice:#176F9E; --aurora:#177E56; --warn:#8F6217; --bad:#AC4335;
+      --chip-ice:rgba(23,111,158,.10); --chip-aurora:rgba(23,126,86,.10);
+      --chip-warn:rgba(143,98,23,.12); --chip-bad:rgba(172,67,53,.10);
+      --r1:#176F9E; --r2:#8F6217; --r3:#7A4FB0; --r4:#177E56;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B111C; --surface:#121B2A; --surface2:#182438; --line:#233350;
+    --ink:#EAF1F9; --muted:#9DB0C6; --faint:#6B7F97;
+    --ice:#7CC8EC; --aurora:#5FD8A6; --warn:#E9B96E; --bad:#E98B7E;
+    --chip-ice:rgba(124,200,236,.14); --chip-aurora:rgba(95,216,166,.14);
+    --chip-warn:rgba(233,185,110,.16); --chip-bad:rgba(233,139,126,.16);
+    --r1:#3193CC; --r2:#C07C28; --r3:#9A5FD0; --r4:#2AA873;
+  }
+  :root[data-theme="light"]{
+    --bg:#F4F7FB; --surface:#FFFFFF; --surface2:#EAF0F7; --line:#D5E0EC;
+    --ink:#152232; --muted:#4E6379; --faint:#7E92A8;
+    --ice:#176F9E; --aurora:#177E56; --warn:#8F6217; --bad:#AC4335;
+    --chip-ice:rgba(23,111,158,.10); --chip-aurora:rgba(23,126,86,.10);
+    --chip-warn:rgba(143,98,23,.12); --chip-bad:rgba(172,67,53,.10);
+    --r1:#176F9E; --r2:#8F6217; --r3:#7A4FB0; --r4:#177E56;
+  }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"PingFang TC","Noto Sans TC",-apple-system,"Helvetica Neue",sans-serif;
+    line-height:1.75; font-size:15.5px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding:40px 20px 80px;}
+  h1,h2,h3{font-family:"Songti TC","Noto Serif TC",Georgia,serif; text-wrap:balance; line-height:1.35;}
+  h1{font-size:30px; margin:6px 0 4px; font-weight:700;}
+  h2{font-size:22px; margin:0 0 6px; font-weight:700;}
+  h3{font-size:17px; margin:0 0 4px; font-weight:600;}
+  .eyebrow{font-size:12px; letter-spacing:.18em; color:var(--ice); text-transform:uppercase; font-weight:600;}
+  .sub{color:var(--muted); margin:0;}
+  section{margin-top:48px;}
+  .sec-head{border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:20px;}
+  .sec-head .sub{font-size:14px;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .chip{background:var(--surface); border:1px solid var(--line); border-radius:999px;
+    padding:4px 13px; font-size:13px; color:var(--muted); white-space:nowrap;}
+  .chip b{color:var(--ink); font-weight:600;}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px 20px;}
+  .grid{display:grid; gap:12px;}
+  @media(min-width:640px){ .grid.c2{grid-template-columns:1fr 1fr;} .grid.c4{grid-template-columns:repeat(4,1fr);} }
+
+  .tile{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 16px;}
+  .tile .k{font-size:12px; color:var(--faint); letter-spacing:.08em;}
+  .tile .v{font-size:24px; font-weight:700; font-variant-numeric:tabular-nums; margin-top:2px;}
+  .tile .v small{font-size:13px; font-weight:500; color:var(--muted);}
+  .tile .d{font-size:12.5px; color:var(--muted); margin-top:2px; line-height:1.5;}
+
+  .verdict{border-left:3px solid var(--ice); background:var(--surface); border-radius:0 10px 10px 0;
+    padding:14px 18px; margin-bottom:12px;}
+  .verdict h3{color:var(--ice);}
+  .verdict.warn{border-left-color:var(--warn);} .verdict.warn h3{color:var(--warn);}
+  .verdict.ok{border-left-color:var(--aurora);} .verdict.ok h3{color:var(--aurora);}
+  .verdict p{margin:4px 0 0; color:var(--muted); font-size:14.5px;}
+  .verdict p b{color:var(--ink); font-weight:600;}
+
+  .phase{margin-top:26px;}
+  .phase-label{display:flex; align-items:baseline; gap:10px; margin-bottom:12px;}
+  .phase-label .name{font-family:"Songti TC","Noto Serif TC",Georgia,serif; font-size:16px; font-weight:700; color:var(--aurora);}
+  .phase-label .range{font-size:12.5px; color:var(--faint); font-variant-numeric:tabular-nums;}
+  .phase-label::after{content:""; flex:1; border-top:1px solid var(--line); transform:translateY(-4px);}
+  .day{display:grid; grid-template-columns:76px 1fr; gap:16px; background:var(--surface);
+    border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:10px;}
+  .day .date{text-align:center; border-right:1px solid var(--line); padding-right:14px;}
+  .day .date .num{font-family:"Songti TC","Noto Serif TC",Georgia,serif; font-size:22px; font-weight:700;
+    font-variant-numeric:tabular-nums; line-height:1.2;}
+  .day .date .wd{font-size:12px; color:var(--faint);}
+  .day .date .sun{font-size:10.5px; color:var(--faint); margin-top:8px; line-height:1.5; font-variant-numeric:tabular-nums;}
+  .day .route{font-weight:600; font-size:15.5px; display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+  .day .spots{color:var(--muted); font-size:14px; margin-top:4px;}
+  .day .note{font-size:13px; color:var(--muted); margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); line-height:1.65;}
+  .day .note b{color:var(--ink); font-weight:600;}
+  .drive{font-size:12px; font-weight:600; border-radius:999px; padding:2px 10px; white-space:nowrap;
+    font-variant-numeric:tabular-nums; background:var(--chip-aurora); color:var(--aurora);}
+  .drive.zero{background:var(--surface2); color:var(--faint);}
+  .drive.near{background:var(--chip-warn); color:var(--warn);}
+  .tag{font-size:11.5px; font-weight:600; border-radius:999px; padding:2px 9px; white-space:nowrap;}
+  .tag.book{background:var(--chip-ice); color:var(--ice);}
+  .tag.todo{background:var(--chip-warn); color:var(--warn);}
+  .tag.tour{background:var(--chip-aurora); color:var(--aurora);}
+  .tag.done{background:var(--chip-aurora); color:var(--aurora);}
+  @media(max-width:560px){
+    .day{grid-template-columns:1fr;}
+    .day .date{text-align:left; border-right:none; border-bottom:1px solid var(--line); padding:0 0 8px; display:flex; gap:10px; align-items:baseline;}
+    .day .date .sun{margin:0 0 0 auto;}
+  }
+
+  .chart-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px 14px 8px;}
+  .chart-card .cap{font-size:12.5px; color:var(--faint); padding:0 8px 10px;}
+  .chart-scroll{overflow-x:auto;}
+  svg text{font-family:"PingFang TC",-apple-system,sans-serif;}
+
+  .tbl-scroll{overflow-x:auto; border:1px solid var(--line); border-radius:10px;}
+  table{border-collapse:collapse; width:100%; min-width:620px; background:var(--surface); font-size:14px;}
+  th{font-size:12px; color:var(--faint); text-align:left; font-weight:600; letter-spacing:.06em;
+    padding:10px 14px; border-bottom:1px solid var(--line); background:var(--surface2); white-space:nowrap;}
+  td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; font-variant-numeric:tabular-nums;}
+  tr:last-child td{border-bottom:none;}
+  .st{font-size:11.5px; font-weight:600; border-radius:999px; padding:2px 9px; white-space:nowrap;}
+  .st.keep{background:var(--chip-aurora); color:var(--aurora);}
+  .st.cancel{background:var(--chip-bad); color:var(--bad);}
+  .st.decide{background:var(--chip-warn); color:var(--warn);}
+  .st.new{background:var(--chip-ice); color:var(--ice);}
+
+  ul.tight{margin:8px 0 0; padding-left:20px;}
+  ul.tight li{margin-bottom:6px; color:var(--muted); font-size:14.5px;}
+  ul.tight li b{color:var(--ink); font-weight:600;}
+  .footnote{color:var(--faint); font-size:12.5px; margin-top:28px; border-top:1px solid var(--line); padding-top:12px; line-height:1.7;}
+  a{color:var(--ice);}
+
+  .todo-section .todo-item{display:flex; gap:12px; align-items:flex-start; padding:12px 16px;
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; margin-bottom:8px;}
+  .todo-section .todo-icon{font-size:20px; flex-shrink:0; line-height:1.4;}
+  .todo-section .todo-body{flex:1;}
+  .todo-section .todo-body .todo-title{font-weight:600; font-size:15px;}
+  .todo-section .todo-body .todo-desc{font-size:13.5px; color:var(--muted); margin-top:2px;}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Iceland · South Coast · Winter</div>
+    <h1>冰島南部 12 晚行程檢視</h1>
+    <p class="sub">2027/1/19（二）– 1/31（日）｜基地：雷克雅維克｜只跑南部｜每日車程 ≤ 3.5 小時</p>
+    <div class="chips">
+      <div class="chip">🇹🇼→🇭🇰 <b>CI 0903</b>｜1/17 08:00 桃園 → 10:10 香港 <span class="tag done">已訂</span></div>
+      <div class="chip">🇭🇰→🇮🇸 <b>LH797 + LH832</b>｜1/18 23:45 香港 → 1/19 14:30 KEF</div>
+      <div class="chip">🇮🇸→🇭🇰 <b>LH833 + LH796</b>｜1/31 15:25 KEF → 2/1 16:25 香港</div>
+      <div class="chip">🇭🇰→🇹🇼 <b>CI 0920</b>｜2/1 20:05 香港 → 22:00 桃園 <span class="tag done">已訂</span></div>
+      <div class="chip"><b>4 人</b>｜漢莎每人 23kg 托運 + 8kg 手提</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>檢視結論</h2>
+      <p class="sub">對照你的 14 天總覽圖、已確認訂房、與「只跑南部＋每日車程 3.5 小時上限」三個條件。</p>
+    </div>
+    <div class="verdict warn">
+      <h3>① 原回程單日車程 4.5 小時超限 → 已拆成三天</h3>
+      <p>冰河湖回雷克雅維克原本要一口氣開 <b>4.5 小時</b>。改成 1/25 到維克、1/26 到 Selfoss、1/27 回雷克雅維克，每天都在 2.5 小時內。</p>
+    </div>
+    <div class="verdict ok">
+      <h3>② 斯奈山半島 → 決定不去（冬天海豹少，多留備用日更從容）</h3>
+      <p>1/28–29 維持<b>市區文化日＋雷克雅內斯半島</b>，行程多了兩個暴風雪備用日。</p>
+    </div>
+    <div class="verdict">
+      <h3>③ 訂房有三組重複／衝突，需要退訂決定</h3>
+      <p>1/22–23 訂了兩個不同地點、1/23–24 也是、雷克雅維克回程訂了 1/25–31 和 1/27–31 兩組。詳見下方「訂房決定」，<b>建議以 1/27 回市區的版本為準</b>。</p>
+    </div>
+    <div class="verdict">
+      <h3>④ 其餘安排合理，保留</h3>
+      <p>1/19–20 不租車、1/21 市區取車再出發（省 2 天租車、避免長途飛行後夜駕）；藍冰洞排在冰河湖住宿日；滑雪與 Lava Show 留在市區彈性日——都沒問題。另外總覽圖的星期標錯了（寫 1/19 是週日，2027 年實際是<b>週二</b>），週幾相關的預約請以本頁為準。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>一月天氣怎麼看</h2>
+      <p class="sub">2027 年 1 月還沒有真正的天氣預報（預報最多提前 10–14 天），以下是南冰島一月的氣候常態，出發前一週再對照即時預報微調。</p>
+    </div>
+    <div class="grid c4">
+      <div class="tile"><div class="k">氣溫（雷克雅維克）</div><div class="v">−3 ~ 2<small> °C</small></div><div class="d">南岸維克稍暖 0~4°C，但風大體感可到 −10°C</div></div>
+      <div class="tile"><div class="k">日照時間</div><div class="v">6 → 7.3<small> 小時</small></div><div class="d">1/19 約 10:41–16:41；1/31 約 10:05–17:21，每天多 6 分鐘</div></div>
+      <div class="tile"><div class="k">風暴頻率</div><div class="v">2–4<small> 天 / 12 天</small></div><div class="d">一月是風暴季，預期旅程中會遇到 2–4 個強風雨雪日</div></div>
+      <div class="tile"><div class="k">極光條件</div><div class="v">佳<small>（夜長）</small></div><div class="d">晴天＋KP≥3 就有機會，市區外更好；一月夜長是優勢</div></div>
+    </div>
+    <div class="card" style="margin-top:12px;">
+      <h3>每天早上出發前的三分鐘檢查（照做就安全）</h3>
+      <ul class="tight">
+        <li><b>vedur.is</b>（冰島氣象局）看風速：陣風 <b>超過 15 m/s 謹慎、超過 20 m/s 改變行程不上路</b>。冰島的危險是風，不是雪。</li>
+        <li><b>road.is</b> 看路況顏色：綠＝正常、黃＝濕滑、藍＝結冰、紅＝封路。南岸一號公路冬天通常開放，但強風時段會臨時封。</li>
+        <li><b>safetravel.is</b> 看官方警報；順手看極光預報（雲圖白色區＝晴，配 KP 指數）。</li>
+        <li>租車務必<b>雪胎</b>（冬季法定標配，取車時確認）＋建議 <b>4WD</b>＋加保<b>礫石與風沙險</b>——南岸強風吹沙打壞車漆是最常見理賠。開車門時抓緊，強風折斷車門不在保險內。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>建議行程（日照與車程都排好了）</h2>
+      <p class="sub">每張卡片標了當天日出日落——一月景點觀光要塞進約 10:00–17:00 的天光窗，長途移動盡量排在天亮之後。</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label"><span class="name">第零段 · 台灣出發與香港轉機</span><span class="range">1/17–18</span></div>
+      <div class="day">
+        <div class="date"><div class="num">1/17</div><div class="wd">週六</div></div>
+        <div>
+          <div class="route">桃園 → 香港（華航 CI 0903） <span class="tag done">已訂</span><span class="tag todo">需訂港住宿</span></div>
+          <div class="spots">08:00 起飛 → 10:10 抵達香港。提早一天到港，有一整天緩衝。</div>
+          <div class="note">🏨 <b>需要在香港訂一晚住宿（兩間房）</b>。選機場附近（東涌／天際萬豪）省交通，或住市區順便逛半天。隔天漢莎 23:45 起飛，傍晚到機場即可。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/18</div><div class="wd">週日</div></div>
+        <div>
+          <div class="route">香港 → 法蘭克福 → KEF（漢莎 LH797 + LH832）</div>
+          <div class="spots">白天在香港自由活動 → 傍晚到機場 → 23:45 起飛。</div>
+          <div class="note">✈️ 國際線建議起飛前 3 小時到機場（約 20:45）。華航行李要自己提出來重新掛漢莎——<b>不是聯程票，行李不會自動轉</b>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label"><span class="name">第一段 · 抵達與市區</span><span class="range">1/19–20</span></div>
+      <div class="day">
+        <div class="date"><div class="num">1/19</div><div class="wd">週二</div><div class="sun">日出 10:41<br>日落 16:41</div></div>
+        <div>
+          <div class="route">KEF 機場 → 雷克雅維克 <span class="drive">車程 ~0.8h</span><span class="tag book">已訂 EIR＋Sif 公寓</span></div>
+          <div class="spots">14:30 落地時天已近黃昏。搭機場巴士或接駁進市區（不急著租車），入住後超市補給、教堂夜景。</div>
+          <div class="note">🌙 <b>今晚起每晚睡前看一眼極光預報</b>——晴天就出門，機會是等來的不是排來的。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/20</div><div class="wd">週三</div><div class="sun">日出 10:38<br>日落 16:44</div></div>
+        <div>
+          <div class="route">雷克雅維克市區步行日 <span class="drive zero">不開車</span></div>
+          <div class="spots">哈爾格林姆教堂（上塔看全景）、太陽航海者、Harpa 音樂廳、舊港區、Laugavegur 逛街。</div>
+          <div class="note">☁️ 下雨也好走——市區景點間都在步行 15 分鐘內，咖啡館密集，適合調時差。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label"><span class="name">第二段 · 黃金圈與南岸東進</span><span class="range">1/21–24</span></div>
+      <div class="day">
+        <div class="date"><div class="num">1/21</div><div class="wd">週四</div><div class="sun">日出 10:36<br>日落 16:48</div></div>
+        <div>
+          <div class="route">市區取車 → 黃金圈 → Selfoss <span class="drive near">車程 ~2.9h</span><span class="tag book">已訂 Hotel Selfoss</span></div>
+          <div class="spots">辛格韋德利國家公園（45 分）→ 蓋錫爾間歇泉（50 分）→ 古佛斯瀑布（10 分）→ Selfoss（1 小時）。</div>
+          <div class="note">⚠️ 這是全程車程最長的一天。<b>10:00 左右取好車出發</b>（黎明天色已亮，抵達辛格韋德利剛好日出），內陸比海邊冷、路面更易結冰；古佛斯觀景步道結冰時走上層就好。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/22</div><div class="wd">週五</div><div class="sun">日出 10:33<br>日落 16:51</div></div>
+        <div>
+          <div class="route">Selfoss → 瀑布線 → 維克 <span class="drive">車程 ~2.3h</span><span class="tag book">已訂 Black Beach Suites</span></div>
+          <div class="spots">塞里雅蘭瀑布（55 分）→ 斯科加瀑布（30 分）→ 雷尼斯黑沙灘（40 分）→ 維克（10 分）。</div>
+          <div class="note">⚠️ <b>黑沙灘離海浪遠一點</b>——瘋狗浪（sneaker wave）是冰島最致命的觀光意外，看到警示燈號紅色就別下沙灘。冬天塞里雅蘭瀑布後方步道結冰封閉，正面看就好。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/23</div><div class="wd">週六</div><div class="sun">日出 10:30<br>日落 16:54</div></div>
+        <div>
+          <div class="route">維克 → 冰河湖區 <span class="drive">車程 ~2.2h</span><span class="tag book">已訂 Fosshotel Glacier Lagoon</span></div>
+          <div class="spots">羽毛峽谷 Fjaðrárgljúfur（冬季視路況，50 分）→ 教堂鎮午餐（Systrafoss）→ 斯卡夫塔山遊客中心 → 旅館。</div>
+          <div class="note">🏔 這段是全程最偏遠路段，加油站少，<b>維克出發前加滿油</b>。傍晚先去冰河湖看夕陽場也可以，離旅館只有 30 分鐘。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/24</div><div class="wd">週日</div><div class="sun">日出 10:27<br>日落 16:58</div></div>
+        <div>
+          <div class="route">傑古沙龍冰河湖 · 鑽石沙灘 · 藍冰洞 <span class="drive">車程 ~1.2h</span><span class="tag tour">藍冰洞 Tour 需預訂</span><span class="tag book">已訂 Fosshotel（第二晚）</span></div>
+          <div class="spots">上午藍冰洞導覽（多數從冰河湖停車場集合）→ 下午冰河湖＋鑽石沙灘慢慢拍。</div>
+          <div class="note">✅ 一月正是藍冰洞最穩定的季節。<b>建議把 tour 訂在今天上午</b>，萬一天候取消，明天上午（1/25）還能候補一場再西返，這就是連住兩晚的價值。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label"><span class="name">第三段 · 分段西返（避免單日 4.5 小時長征）</span><span class="range">1/25–26</span></div>
+      <div class="day">
+        <div class="date"><div class="num">1/25</div><div class="wd">週一</div><div class="sun">日出 10:24<br>日落 17:01</div></div>
+        <div>
+          <div class="route">冰河湖區 → 維克 <span class="drive">車程 ~2.3h</span><span class="tag todo">需新訂維克一晚</span></div>
+          <div class="spots">上午可加斯卡夫塔冰川健行（半天團）或藍冰洞候補場 → 下午西返，補看昨天漏掉的點 → 宿維克。</div>
+          <div class="note">💡 若想省一次訂房，也可以直接開回雷克雅維克，但單日 4.5 小時會超過你的上限——取捨見下方「訂房決定」。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/26</div><div class="wd">週二</div><div class="sun">日出 10:21<br>日落 17:04</div></div>
+        <div>
+          <div class="route">維克 → Selfoss <span class="drive">車程 ~1.9h</span><span class="tag todo">需新訂 Selfoss 一晚</span></div>
+          <div class="spots">迪霍拉里海蝕拱（冬季視路況）→ 斯科加瀑布補訪 → Hvolsvöllur 的 LAVA Centre 火山中心 → 宿 Selfoss。</div>
+          <div class="note">🎯 這兩天是行程的「海綿」：前面若有景點被暴風雪吹掉，就在這兩天補回來。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label"><span class="name">第四段 · 雷克雅維克基地（含暴風雪備用日）</span><span class="range">1/27–31</span></div>
+      <div class="day">
+        <div class="date"><div class="num">1/27</div><div class="wd">週三</div><div class="sun">日出 10:18<br>日落 17:08</div></div>
+        <div>
+          <div class="route">Selfoss → 雷克雅維克 <span class="drive">車程 ~1.1h</span><span class="tag book">已訂 EIR＋Sif（1/27–31）</span></div>
+          <div class="spots">順路 Kerið 火口湖（15 分）→ 中午前回市區入住 → 傍晚 Sky Lagoon 海景溫泉看日落。</div>
+          <div class="note">♨️ Sky Lagoon 離市區只有 15 分鐘，七步儀式約 1.5–2 小時，記得先線上訂票。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/28</div><div class="wd">週四</div><div class="sun">日出 10:15<br>日落 17:11</div></div>
+        <div>
+          <div class="route">市區文化日 <span class="drive zero">不開車</span></div>
+          <div class="spots">珍珠樓 Perlan（冰洞展＋觀景台）、Lava Show 雷克雅維克店、國家博物館或 FlyOver Iceland。</div>
+          <div class="note">🌨 備用日 ①：若南岸段有整天被暴風雪吹掉，行程從這裡開始往後擠。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/29</div><div class="wd">週五</div><div class="sun">日出 10:12<br>日落 17:14</div></div>
+        <div>
+          <div class="route">雷克雅內斯半島小環線 <span class="drive">車程 ~2.0h</span><span class="tag tour">藍湖需預約</span></div>
+          <div class="spots">藍湖溫泉（或已泡過 Sky Lagoon 就改 Krýsuvík 地熱區）→ 歐美板塊之橋 → Gunnuhver 地熱噴口。</div>
+          <div class="note">⚠️ 雷克雅內斯近年有火山活動，藍湖偶爾臨時關閉——<b>出發前一天再確認開放狀態</b>，關閉就整天換成 Krýsuvík＋燈塔線，車程一樣約 2 小時。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/30</div><div class="wd">週六</div><div class="sun">日出 10:08<br>日落 17:18</div></div>
+        <div>
+          <div class="route">彈性日：滑雪或撿漏 <span class="drive">車程 ~1.0h</span></div>
+          <div class="spots">天氣好：Bláfjöll 滑雪場（市區 30–40 分鐘，出發前確認開放與雪況）；或觀鯨船、追極光團。</div>
+          <div class="note">🌨 備用日 ②：最後的補位空間。今晚整理行李，把托運重量抓好（每人 23kg）。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">1/31</div><div class="wd">週日</div><div class="sun">日出 10:05<br>日落 17:21</div></div>
+        <div>
+          <div class="route">雷克雅維克 → KEF 還車 → 15:25 起飛 <span class="drive">車程 ~0.8h</span></div>
+          <div class="spots">國際線建議起飛前 2.5–3 小時到機場：<b>11:00 前離開市區、12:00 前還好車</b>，加滿油再還。</div>
+          <div class="note">⚠️ 冬天早上若有風雪警報，路況會拖慢——前一晚看好預報，必要時再提早一小時出門。</div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="date"><div class="num">2/1</div><div class="wd">週一</div></div>
+        <div>
+          <div class="route">抵香港 → 轉機回桃園（華航 CI 0920） <span class="tag done">已訂</span></div>
+          <div class="spots">漢莎 16:25 落地香港 → 出關提行李重掛華航（約 1–1.5 小時）→ 20:05 起飛 → 22:00 回到桃園。</div>
+          <div class="note">⚠️ <b>轉機緩衝約 2 小時</b>，偏緊但可行。落地後直奔華航櫃台辦理，不要逛免稅店。若漢莎延誤超過 1 小時，立刻聯繫華航改簽當日稍晚班次或隔日班。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>路線地圖</h2>
+      <p class="sub">冰島西南部示意圖（依實際經緯度繪製）。實線＝去程、虛線＝回程；線上的數字是日期，▪＝過夜點。</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-scroll"><div id="routeMap" style="min-width:700px;"></div></div>
+      <div class="chips" style="padding:6px 8px 12px; margin-top:0;">
+        <div class="chip"><b style="color:var(--r1);">━</b> 南岸去程 1/21–24</div>
+        <div class="chip"><b style="color:var(--r2);">╍</b> 分段回程 1/25–27</div>
+        <div class="chip"><b style="color:var(--r3);">━</b> 雷克雅內斯 1/29</div>
+        <div class="chip">▪ 過夜點</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>每日車程檢核</h2>
+      <p class="sub">全程 13 天總車程約 18.5 小時，最長一天 2.9 小時，全部低於 3.5 小時上限。</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-scroll"><div id="driveChart" style="min-width:660px;"></div></div>
+      <div class="cap">單位：小時。虛線＝你的 3.5 小時上限。1/20、1/28 為不開車的步行日。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>租車怎麼租最划算</h2>
+      <p class="sub">你的行程「晚取車」已經做到了（1/19–20 不租車）。剩下唯一能省的是「提早還車」，但省不了多少——算給你看：</p>
+    </div>
+    <div class="grid c2">
+      <div class="card">
+        <h3 style="color:var(--aurora);">建議：租好租滿 1/21 → 1/31（約 10 天）</h3>
+        <ul class="tight">
+          <li>1/21 市區取車 → 1/31 KEF 機場還車，去機場不用趕巴士</li>
+          <li>1/21–29 連續 9 天天天用車，<b>閒置最多 1 天</b>（1/30）</li>
+          <li>最後兩天有車＝追極光、去滑雪、風暴改期都機動</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--warn);">省錢版：1/29 晚市區還車（約 8 天）</h3>
+        <ul class="tight">
+          <li>省約 2 天租金：冬季 4WD 約 TWD 3,000–4,500／天 → <b>省 6,000–9,000</b></li>
+          <li>但要加回：1/31 機場巴士 4 人約 TWD 4,000＋1/30 若去藍湖需接駁車</li>
+          <li><b>淨省約 2,000–5,000，4 人分攤每人約一千</b>，代價是最後兩天完全沒機動性——不建議，除非預算很緊</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:12px;">金額是行情估計，實際以租車報價為準；市區取車、機場還車的異地費多數大公司不收或很低，訂車時確認一下即可。</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>台灣—香港接駁（已訂 ✅ 華航）</h2>
+      <p class="sub">和漢莎是分開的兩張票，行李不會自動轉——去程在香港要出關提行李、重新掛漢莎；回程在香港也要提行李重掛華航。</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--aurora);">華航 CI（訂位代號見華航 App）</h3>
+      <div class="grid c2" style="margin-top:12px;">
+        <div class="tile">
+          <div class="k">去程 1/17（六）</div>
+          <div class="v" style="font-size:20px;">CI 0903</div>
+          <div class="d"><b>TPE 08:00 → HKG 10:10</b><br>提早一天到港，隔天晚上才飛漢莎，緩衝超過 30 小時 ✅</div>
+        </div>
+        <div class="tile">
+          <div class="k">回程 2/1（一）</div>
+          <div class="v" style="font-size:20px;">CI 0920</div>
+          <div class="d"><b>HKG 20:05 → TPE 22:00</b><br>漢莎 16:25 落地，轉機緩衝約 2 小時 ⚠️ 偏緊但可行</div>
+        </div>
+      </div>
+      <ul class="tight" style="margin-top:14px;">
+        <li>⚠️ <b>回程轉機注意</b>：漢莎落地後直奔華航櫃台，不逛免稅店。若漢莎延誤超過 1 小時，立刻聯繫華航改簽。</li>
+        <li>建議加買含「錯過銜接／班機延誤」的旅平險——兩張票分開訂，航空公司不負責銜接。</li>
+        <li>🆕 <b>需要在香港訂一晚住宿（1/17，兩間房）</b>——機場附近省事，或住市區順便逛半天。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>訂房決定（有三組衝突要處理）</h2>
+      <p class="sub">你的截圖裡雷克雅維克每晚都訂了 EIR＋Sif 兩間（4 人分兩間住，合理，以下視為一組）。真正要決定的是這三組重複：</p>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <tr><th>日期</th><th>訂房</th><th>地點</th><th>建議</th><th>原因</th></tr>
+        <tr style="background:var(--chip-warn);"><td>1/17</td><td>（尚未訂）</td><td>香港</td><td><span class="st new">需新訂</span></td><td>華航提早一天到港，需住一晚（兩間房）</td></tr>
+        <tr><td>1/19–21</td><td>EIR＋Sif Apartments</td><td>雷克雅維克</td><td><span class="st keep">留用</span></td><td>符合抵達安排</td></tr>
+        <tr><td>1/21–22</td><td>Hotel Selfoss</td><td>Selfoss</td><td><span class="st keep">留用</span></td><td>黃金圈終點，位置正確</td></tr>
+        <tr><td>1/22–23</td><td>Black Beach Suites</td><td>維克</td><td><span class="st keep">留用</span></td><td>比 Seljalandsfoss 小屋更靠東，隔天車程較短</td></tr>
+        <tr><td>1/22–23</td><td>Seljalandsfoss cottage</td><td>塞里雅蘭瀑布旁</td><td><span class="st cancel">建議退訂</span></td><td>與上面同晚重複，二選一</td></tr>
+        <tr><td>1/23–24</td><td>Fosshotel Glacier Lagoon</td><td>冰河湖區</td><td><span class="st keep">留用</span></td><td>藍冰洞行程的正確落腳點</td></tr>
+        <tr><td>1/23–24</td><td>Black Beach Suites</td><td>維克</td><td><span class="st cancel">建議退訂</span></td><td>與上面同晚重複；住維克會離藍冰洞集合點 2 小時遠</td></tr>
+        <tr><td>1/24–25</td><td>Fosshotel Glacier Lagoon</td><td>冰河湖區</td><td><span class="st keep">留用</span></td><td>連住兩晚＝藍冰洞天候備援</td></tr>
+        <tr><td>1/25–26</td><td>（尚未訂）</td><td>維克</td><td><span class="st new">需新訂</span></td><td>分段西返第一晚</td></tr>
+        <tr><td>1/26–27</td><td>（尚未訂）</td><td>Selfoss</td><td><span class="st new">需新訂</span></td><td>分段西返第二晚</td></tr>
+        <tr><td>1/25–31</td><td>Sif＋EIR Apartments</td><td>雷克雅維克</td><td><span class="st cancel">建議退訂</span></td><td>與 1/27–31 那組重複（見下方兩案比較）</td></tr>
+        <tr><td>1/27–31</td><td>EIR＋Sif Apartments</td><td>雷克雅維克</td><td><span class="st keep">留用</span></td><td>配合分段西返的回城日</td></tr>
+      </table>
+    </div>
+    <div class="grid c2" style="margin-top:12px;">
+      <div class="card">
+        <h3 style="color:var(--aurora);">方案 A（建議）：1/27 回市區</h3>
+        <ul class="tight">
+          <li>退 1/25–31 那組（約 TWD 95,905），留 1/27–31（約 TWD 68,061）</li>
+          <li>新訂維克、Selfoss 各一晚（約 TWD 20,000 上下）</li>
+          <li><b>每天車程都在 2.5 小時內</b>，還多兩個補景點的緩衝日</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--warn);">方案 B：1/26 回市區（少訂一晚）</h3>
+        <ul class="tight">
+          <li>留 1/25–31 那組、退 1/27–31；只新訂維克一晚（1/25）</li>
+          <li>1/26 維克直接開回市區約 <b>2.6 小時</b>，可行但沿路少停</li>
+          <li>代價：1/25 那晚市區房空著浪費一晚房費</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:12px;">⚠️ 退訂前請先打開訂房 App 確認每筆的<b>免費取消期限</b>——如果 1/25–31 那組已過免退期，就改走方案 B。</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>風險與備案</h2>
+    </div>
+    <div class="grid c2">
+      <div class="card">
+        <h3>🌪 遇到暴風雪封路怎麼辦</h3>
+        <ul class="tight">
+          <li>南岸段（1/21–26）任何一天被吹掉：當天留在住宿點休息，行程整段往後平移，用 1/28、1/30 兩個市區備用日吸收。</li>
+          <li>藍冰洞／冰川健行團因天候取消會全額退款，直接改訂隔天場次。</li>
+          <li>連兩天封路（罕見）：放棄冰河湖段最東端，黃金圈＋瀑布線＋維克仍然成立。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🌌 極光策略</h3>
+        <ul class="tight">
+          <li>行程有 12 個夜晚，照統計晴夜 3–5 晚，看到機率相當高——<b>別排「極光專屬日」，每晚睡前看預報就好</b>。</li>
+          <li>最佳位置：冰河湖畔（1/23–24 就住旁邊）與維克黑沙灘，光害極低。</li>
+          <li>市區期間若預報極佳，可開 20 分鐘到 Grótta 燈塔，或直接報極光團讓別人開車。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>📋 下一步行動（按順序做）</h2>
+      <p class="sub">已完成的項目標 ✅，依緊急程度排序。</p>
+    </div>
+    <div class="todo-section">
+      <div class="todo-item" style="border-left:3px solid var(--aurora);">
+        <div class="todo-icon">✅</div>
+        <div class="todo-body">
+          <div class="todo-title">台灣↔香港來回機票</div>
+          <div class="todo-desc">華航 CI 0903 / CI 0920</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--aurora);">
+        <div class="todo-icon">✅</div>
+        <div class="todo-body">
+          <div class="todo-title">斯奈山半島</div>
+          <div class="todo-desc">決定不去。一月海豹不上岸，多留備用日更從容。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--bad);">
+        <div class="todo-icon">1️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">查退訂期限 → 決定回程方案 A 或 B</div>
+          <div class="todo-desc">打開訂房 App，看 1/25–31 和 1/27–31 兩組 EIR＋Sif 的免費取消截止日。能退前者 → 選方案 A；過期 → 走方案 B。這個決定影響後面所有訂房。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--bad);">
+        <div class="todo-icon">2️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">退掉兩筆確定衝突的訂房</div>
+          <div class="todo-desc">① Seljalandsfoss cottage（1/22–23）② Black Beach Suites（1/23–24）——這兩筆不管選哪個方案都要退。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--bad);">
+        <div class="todo-icon">3️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">退掉多出來的那組雷克雅維克訂房</div>
+          <div class="todo-desc">方案 A → 退 1/25–31 那組；方案 B → 退 1/27–31 那組。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--ice);">
+        <div class="todo-icon">4️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">新訂回程住宿</div>
+          <div class="todo-desc">方案 A：維克一晚（1/25）＋ Selfoss 一晚（1/26）。方案 B：維克一晚（1/25）。都要訂兩間房。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--ice);">
+        <div class="todo-icon">5️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">訂香港住宿一晚（1/17，兩間房）</div>
+          <div class="todo-desc">華航 10:10 到港，隔天晚上才飛。機場附近（東涌／天際萬豪）或市區都可以。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--warn);">
+        <div class="todo-icon">6️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">預約活動與租車</div>
+          <div class="todo-desc">① 藍冰洞 Tour（1/24 上午）② Sky Lagoon（1/27 傍晚）③ 藍湖（出發前確認）④ 租車 1/21–31（雪胎＋4WD＋礫石風沙險）。</div>
+        </div>
+      </div>
+      <div class="todo-item" style="border-left:3px solid var(--warn);">
+        <div class="todo-icon">7️⃣</div>
+        <div class="todo-body">
+          <div class="todo-title">旅平險</div>
+          <div class="todo-desc">務必含「錯過銜接／班機延誤」——台港段和港冰島段是分開的票，航空公司不負責銜接。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="footnote">
+    資料來源：航班＝Lufthansa 機票 PDF＋華航 App 截圖；訂房＝訂房 App 截圖（金額以 App 為準）；日出日落＝雷克雅維克天文時刻（±數分鐘）；氣候＝冰島氣象局歷年一月統計。車程為冬季正常路況估計，結冰或強風時請自動加 30–50%。出發前 10 天起可看真正的天氣預報：vedur.is（英文版 en.vedur.is）。
+  </p>
+</div>
+
+<script>
+(function(){
+  var data=[
+    ["1/19",0.8],["1/20",0],["1/21",2.9],["1/22",2.3],["1/23",2.2],["1/24",1.2],
+    ["1/25",2.3],["1/26",1.9],["1/27",1.1],["1/28",0],["1/29",2.0],["1/30",1.0],["1/31",0.8]
+  ];
+  var W=660,H=240,mL=34,mR=8,mT=18,mB=28;
+  var plotW=W-mL-mR, plotH=H-mT-mB, base=mT+plotH, maxV=4;
+  function y(v){return base-(v/maxV)*plotH;}
+  var slot=plotW/data.length, bw=Math.min(30,slot*0.6);
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="每日車程長條圖">';
+  [1,2,3].forEach(function(g){
+    s+='<line x1="'+mL+'" y1="'+y(g)+'" x2="'+(W-mR)+'" y2="'+y(g)+'" stroke="var(--line)" stroke-width="1"/>';
+    s+='<text x="'+(mL-8)+'" y="'+(y(g)+4)+'" font-size="10" fill="var(--faint)" text-anchor="end">'+g+'h</text>';
+  });
+  s+='<line x1="'+mL+'" y1="'+y(3.5)+'" x2="'+(W-mR)+'" y2="'+y(3.5)+'" stroke="var(--warn)" stroke-width="1.5" stroke-dasharray="5 4"/>';
+  s+='<text x="'+(W-mR)+'" y="'+(y(3.5)-6)+'" font-size="10.5" fill="var(--warn)" text-anchor="end" font-weight="600">上限 3.5h</text>';
+  data.forEach(function(d,i){
+    var cx=mL+slot*i+slot/2, x0=cx-bw/2, v=d[1];
+    if(v>0){
+      var yt=y(v), r=Math.min(4,(base-yt)/2);
+      s+='<path d="M'+x0+','+base+' L'+x0+','+(yt+r)+' Q'+x0+','+yt+' '+(x0+r)+','+yt+
+         ' L'+(x0+bw-r)+','+yt+' Q'+(x0+bw)+','+yt+' '+(x0+bw)+','+(yt+r)+
+         ' L'+(x0+bw)+','+base+' Z" fill="var(--ice)" opacity="0.92"><title>'+d[0]+'：'+v.toFixed(1)+' 小時</title></path>';
+      s+='<text x="'+cx+'" y="'+(yt-6)+'" font-size="10.5" fill="var(--muted)" text-anchor="middle">'+v.toFixed(1)+'</text>';
+    }else{
+      s+='<line x1="'+x0+'" y1="'+base+'" x2="'+(x0+bw)+'" y2="'+base+'" stroke="var(--faint)" stroke-width="2.5"><title>'+d[0]+'：不開車</title></line>';
+      s+='<text x="'+cx+'" y="'+(base-8)+'" font-size="10" fill="var(--faint)" text-anchor="middle">步行</text>';
+    }
+    s+='<text x="'+cx+'" y="'+(H-8)+'" font-size="10" fill="var(--faint)" text-anchor="middle">'+d[0]+'</text>';
+  });
+  s+='<line x1="'+mL+'" y1="'+base+'" x2="'+(W-mR)+'" y2="'+base+'" stroke="var(--line)" stroke-width="1.5"/>';
+  s+='</svg>';
+  document.getElementById('driveChart').innerHTML=s;
+})();
+
+(function(){
+  var LON=[-24.35,-15.65], LAT=[63.22,65.18], W=960, H=500, P=8;
+  var kx=(W-2*P)/(LON[1]-LON[0]), ky=(H-2*P)/(LAT[1]-LAT[0]);
+  function px(lon){return +(P+(lon-LON[0])*kx).toFixed(1);}
+  function py(lat){return +(P+(LAT[1]-lat)*ky).toFixed(1);}
+  function pl(pts,close){return pts.map(function(c,i){return (i?'L':'M')+px(c[0])+','+py(c[1]);}).join(' ')+(close?' Z':'');}
+
+  var coast=[[-15.65,64.18],[-16.0,64.10],[-16.18,64.04],[-16.6,63.90],[-17.2,63.78],[-17.9,63.62],
+    [-18.6,63.47],[-19.05,63.39],[-19.7,63.51],[-20.3,63.62],[-20.8,63.78],[-21.15,63.86],[-21.4,63.84],
+    [-21.8,63.82],[-22.1,63.83],[-22.43,63.83],[-22.7,63.81],[-22.75,63.87],[-22.71,64.04],[-22.69,64.08],
+    [-22.56,64.01],[-22.4,63.98],[-21.97,64.07],[-21.9,64.15],[-21.8,64.22],[-21.9,64.3],[-22.05,64.32],
+    [-22.1,64.5],[-22.4,64.55],[-22.7,64.6],[-23.0,64.72],[-23.05,64.79],[-23.38,64.81],[-23.62,64.76],
+    [-23.8,64.73],[-23.9,64.75],[-24.05,64.88],[-23.88,64.91],[-23.71,64.89],[-23.42,64.94],[-23.27,64.92],
+    [-23.0,65.0],[-22.73,65.07],[-22.73,65.18],[-15.65,65.18]];
+
+  var glaciers=[[-16.9,64.42,1.15,0.38],[-19.07,63.67,0.26,0.10],[-19.63,63.65,0.16,0.06],
+    [-20.5,64.68,0.35,0.28],[-23.76,64.83,0.09,0.05]];
+
+  var kef=[-22.605,63.985], rvk=[-21.94,64.145];
+  var rKEF=[kef,[-22.4,63.97],[-22.0,64.05],rvk];
+  var rOut=[rvk,[-21.7,64.18],[-21.13,64.26],[-20.73,64.21],[-20.30,64.31],[-20.12,64.33],
+    [-20.3,64.2],[-20.53,64.13],[-20.88,64.04],[-21.0,63.935],[-20.4,63.83],[-20.22,63.75],
+    [-19.99,63.615],[-19.51,63.53],[-19.08,63.40],[-19.01,63.42],[-18.6,63.55],[-18.17,63.77],
+    [-18.06,63.79],[-17.6,63.86],[-17.2,63.93],[-16.97,64.02],[-16.55,63.94],[-16.18,64.05]];
+  var rBack=[[-16.55,63.94],[-17.2,63.93],[-17.6,63.86],[-18.06,63.79],[-18.6,63.55],[-19.01,63.42],
+    [-19.51,63.53],[-19.99,63.615],[-20.22,63.75],[-20.4,63.83],[-21.0,63.935],[-21.19,63.99],
+    [-21.4,64.02],[-21.94,64.145]];
+  var rRnes=[rvk,[-21.97,64.06],[-22.2,63.95],[-22.44,63.88],[-22.43,63.84],[-22.25,63.90],[-22.0,64.0],[-21.96,64.12]];
+
+  var pois=[
+    ["KEF 機場",kef,-6,14,"end","c"],
+    ["雷克雅維克",rvk,-8,4,"end","c"],
+    ["辛格韋德利",[-21.13,64.26],0,-9,"middle","n"],
+    ["蓋錫爾",[-20.30,64.31],-4,-9,"end","n"],
+    ["古佛斯",[-20.12,64.33],7,0,"start","n"],
+    ["Selfoss",[-21.0,63.935],-8,10,"end","o"],
+    ["塞里雅蘭瀑布",[-19.99,63.615],2,-9,"start","n"],
+    ["斯科加瀑布",[-19.51,63.53],0,-10,"middle","n"],
+    ["維克・黑沙灘",[-19.01,63.42],4,14,"middle","o"],
+    ["羽毛峽谷",[-18.17,63.77],-7,-6,"end","n"],
+    ["斯卡夫塔",[-16.97,64.02],-6,-8,"end","n"],
+    ["冰河湖旅館",[-16.55,63.94],2,14,"middle","o"],
+    ["傑古沙龍冰河湖",[-16.18,64.05],-6,-9,"end","n"],
+    ["藍湖",[-22.44,63.88],-8,4,"end","n"]
+  ];
+
+  var badges=[["19・31",[-22.28,64.03]],["21",[-20.72,64.24]],["22",[-20.22,63.78]],["23",[-17.62,63.89]],
+    ["24",[-16.35,64.01]],["25–27",[-19.45,63.36]],["29",[-22.24,63.92]]];
+
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="每日行程路線地圖">';
+  s+='<path d="'+pl(coast,true)+'" fill="var(--surface2)" stroke="var(--faint)" stroke-width="1" stroke-linejoin="round" opacity="0.9"/>';
+  glaciers.forEach(function(g){
+    s+='<ellipse cx="'+px(g[0])+'" cy="'+py(g[1])+'" rx="'+(g[2]*kx).toFixed(1)+'" ry="'+(g[3]*ky).toFixed(1)+'" fill="var(--ink)" opacity="0.08"/>';
+  });
+  s+='<text x="'+px(-16.9)+'" y="'+py(64.44)+'" font-size="11" fill="var(--faint)" text-anchor="middle" opacity="0.9">瓦特納冰川</text>';
+  s+='<text x="'+px(-19.07)+'" y="'+py(63.66)+'" font-size="9.5" fill="var(--faint)" text-anchor="middle" opacity="0.8">米達爾斯冰川</text>';
+
+  function route(pts,color,dash,wd){
+    return '<path d="'+pl(pts)+'" fill="none" stroke="'+color+'" stroke-width="'+(wd||2.5)+'"'+
+      (dash?' stroke-dasharray="7 5"':'')+' stroke-linecap="round" stroke-linejoin="round"/>';
+  }
+  s+=route(rKEF,'var(--faint)',false,2);
+  s+='<g transform="translate(0,7)">'+route(rBack,'var(--r2)',true)+'</g>';
+  s+=route(rOut,'var(--r1)',false);
+  s+=route(rRnes,'var(--r3)',false,2.2);
+
+  pois.forEach(function(p){
+    var x=px(p[1][0]), y=py(p[1][1]);
+    if(p[5]==="o"){ s+='<rect x="'+(x-4)+'" y="'+(y-4)+'" width="8" height="8" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"><title>'+p[0]+'（過夜）</title></rect>'; }
+    else if(p[5]==="c"){ s+='<circle cx="'+x+'" cy="'+y+'" r="5" fill="var(--ink)" stroke="var(--surface)" stroke-width="1.5"><title>'+p[0]+'</title></circle>'; }
+    else { s+='<circle cx="'+x+'" cy="'+y+'" r="3.5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.8"><title>'+p[0]+'</title></circle>'; }
+    var fw=(p[5]==="c")?' font-weight="600"':'';
+    s+='<text x="'+(x+p[2])+'" y="'+(y+p[3]+3)+'" font-size="11"'+fw+' fill="'+(p[5]==="n"?'var(--muted)':'var(--ink)')+'" text-anchor="'+p[4]+'">'+p[0]+'</text>';
+  });
+
+  badges.forEach(function(b){
+    var x=px(b[1][0]), y=py(b[1][1]), w=b[0].length>2?38:22;
+    s+='<rect x="'+(x-w/2)+'" y="'+(y-9)+'" width="'+w+'" height="17" rx="8.5" fill="var(--surface)" stroke="var(--line)"/>';
+    s+='<text x="'+x+'" y="'+(y+3.5)+'" font-size="10.5" font-weight="600" fill="var(--muted)" text-anchor="middle">'+b[0]+'</text>';
+  });
+  s+='</svg>';
+  document.getElementById('routeMap').innerHTML=s;
+})();
+</script>
+</body>
+</html>
