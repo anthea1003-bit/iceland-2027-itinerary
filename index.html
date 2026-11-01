@@ -426,7 +426,7 @@
         <div>
           <div class="route">市區文化日 <span class="drive zero">不開車</span></div>
           <div class="spots">珍珠樓 Perlan（冰洞展＋觀景台）、Lava Show 雷克雅維克店、國家博物館或 FlyOver Iceland。</div>
-          <div class="note">🌨 備用日 ①：若南岸段有整天被暴風雪吹掉，行程從這裡開始往後擠。</div>
+          <div class="note">🌨 備用日 ①：若南岸段有整天被暴風雪吹掉，行程從這裡開始往後擠。⛷ <b>滑雪備案</b>：1/30 若要補行程，就改今天 14:00 去 Bláfjöll（平日 14:00–21:00），先滑 3 小時白天、日落後體驗開燈夜滑，滑完在那一帶順便看極光。</div>
         </div>
       </div>
       <div class="day">
@@ -440,9 +440,9 @@
       <div class="day">
         <div class="date"><div class="num">1/30</div><div class="wd">週六</div><div class="sun">日出 10:08<br>日落 17:18</div></div>
         <div>
-          <div class="route">彈性日：滑雪或撿漏 <span class="drive">車程 ~1.0h</span></div>
-          <div class="spots">天氣好：Bláfjöll 滑雪場（市區 30–40 分鐘，出發前確認開放與雪況）；或觀鯨船、追極光團。</div>
-          <div class="note">🌨 備用日 ②：最後的補位空間。今晚整理行李，把托運重量抓好（每人 23kg）。</div>
+          <div class="route">Bláfjöll 滑雪日 <span class="drive">車程 ~1.0h</span><span class="tag tour">前一晚查開放</span></div>
+          <div class="spots">10:00 開門就到（週六 10:00–17:00；市區走 417 號路 30–40 分鐘）→ 現場租裝備 → 滑到下午 → 回市區。成人日票約 6,150 ISK，4 人約 TWD 5,800；裝備另計。</div>
+          <div class="note">⛷ <b>前一晚上 skidasvaedi.is 確認有開</b>——一月通常開放，但強風會封 417 號路。若這天被拿去補南岸行程，滑雪改到 1/28 下午（見該日備案）。今晚整理行李，把托運重量抓好（每人 23kg），車明天 12:00 前要還、先加滿油。</div>
         </div>
       </div>
       <div class="day">
@@ -489,7 +489,7 @@
         <div class="chip"><b style="color:var(--r1);">━</b> 南岸去程 1/21–24</div>
         <div class="chip"><b style="color:var(--r2);">╍</b> 分段回程 1/25–27</div>
         <div class="chip"><b style="color:var(--r3);">━</b> 雷克雅內斯 1/29</div>
-        <div class="chip"><b style="color:var(--faint);">━</b> 機場接駁 1/19・31</div>
+        <div class="chip"><b style="color:var(--faint);">━</b> 機場接駁 1/19・31、滑雪 1/30</div>
         <div class="chip"><b style="color:var(--warn);">●</b> 重點標記</div>
         <div class="chip"><b style="color:var(--aurora);">▁</b> 日期底線＝租車日</div>
         <div class="chip"><b style="color:var(--bad);">•</b> 紅點＝當晚有重複訂房要退</div>
@@ -773,7 +773,8 @@
     {d:'1/28',t:'市區文化日（暴風雪備用日 ①）',drive:'不開車',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)',car:8},
     {d:'1/29',t:'雷克雅內斯：藍湖 → 板塊之橋 → Gunnuhver',drive:'2.0h',stay:'雷克雅維克 EIR＋Sif',c:'var(--r3)',w:2.2,car:9,
       pts:[rvk,[-21.97,64.06],[-22.2,63.95],[-22.44,63.88],[-22.43,63.84],[-22.25,63.90],[-22.0,64.0],[-21.96,64.12]]},
-    {d:'1/30',t:'彈性日：Bláfjöll 滑雪或撿漏（備用日 ②）',drive:'1.0h',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)',car:10},
+    {d:'1/30',t:'Bláfjöll 滑雪日（備案 1/28 下午夜滑）',drive:'1.0h',stay:'雷克雅維克 EIR＋Sif',c:'var(--faint)',w:2,car:10,
+      pts:[rvk,[-21.85,64.09],[-21.72,64.02],[-21.63,63.98]]},
     {d:'1/31',t:'雷克雅維克 → KEF 還車 → 15:25 起飛',drive:'0.8h',stay:'— 飛香港',c:'var(--faint)',w:2,off:-5,car:11,hl:4,pts:[rvk,[-22.0,64.05],[-22.4,63.97],kef]}
   ];
   // action highlights: [title, sub, map lon/lat, leg index]
@@ -791,10 +792,10 @@
     ["塞里雅蘭瀑布",[-19.99,63.615],2,-11,"start","n"],["斯科加瀑布",[-19.51,63.53],0,15,"middle","n"],
     ["維克・黑沙灘",vik,0,23,"middle","o"],["羽毛峽谷",[-18.17,63.77],-7,-6,"end","n"],
     ["斯卡夫塔",[-16.97,64.02],-6,-8,"end","n"],["冰河湖旅館",foss,2,14,"middle","o"],
-    ["傑古沙龍冰河湖",lagoon,-6,-9,"end","n"],["藍湖",[-22.44,63.88],-8,4,"end","n"]
+    ["傑古沙龍冰河湖",lagoon,-6,-9,"end","n"],["藍湖",[-22.44,63.88],-8,4,"end","n"],["Bláfjöll 滑雪場",[-21.63,63.98],6,4,"start","n"]
   ];
   var badges=[['19–20',[-22.28,64.03],0],['21',[-20.72,64.24],2],['22',[-20.22,63.78],3],['23–24',[-17.62,63.89],4],
-    ['25',[-19.45,63.36],6],['26',[-20.62,63.79],7],['27–30',[-21.58,64.11],8],['29',[-22.24,63.92],10]];
+    ['25',[-19.45,63.36],6],['26',[-20.62,63.79],7],['27–30',[-21.58,64.11],8],['29',[-22.24,63.92],10],['30',[-21.76,64.04],11]];
   var stayPt={'1/19':rvk,'1/20':rvk,'1/21':selfoss,'1/22':vik,'1/23':foss,'1/24':foss,'1/25':vik,'1/26':selfoss,'1/27':rvk,'1/28':rvk,'1/29':rvk,'1/30':rvk,'1/31':kef};
 
   var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="每日行程路線地圖">';
