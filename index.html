@@ -64,6 +64,10 @@
   .sec-head{border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:20px;}
   .sec-head .sub{font-size:14px;}
 
+  .film-section video{display:block; width:100%; max-width:100%; height:auto; aspect-ratio:16/9;
+    box-sizing:border-box; background:var(--surface); border:1px solid var(--line); border-radius:10px;}
+  .film-section .film-credits{margin:12px 0 0; font-size:14px;}
+
   .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
   .chip{background:var(--surface); border:1px solid var(--line); border-radius:999px;
     padding:4px 13px; font-size:13px; color:var(--muted); white-space:nowrap;}
@@ -247,6 +251,18 @@
       <div class="chip"><b>4 人</b>｜漢莎每人 23kg 托運 + 8kg 手提</div>
     </div>
   </header>
+
+  <section class="film-section" aria-labelledby="film-title">
+    <div class="sec-head">
+      <h2 id="film-title">影片版：南岸十二夜</h2>
+      <p class="sub">4 分 30 秒，畫面為示意，素材授權見片尾名單。</p>
+    </div>
+    <video controls preload="metadata" playsinline poster="media/film-poster.jpg" aria-labelledby="film-title">
+      <source src="media/iceland-south-coast-v1-web.mp4" type="video/mp4">
+      你的瀏覽器不支援影片播放，可<a href="media/iceland-south-coast-v1-web.mp4">下載影片</a>觀看。
+    </video>
+    <p class="film-credits"><a href="media/film-credits.txt">素材授權名單</a></p>
+  </section>
 
   <section>
     <div class="sec-head">
